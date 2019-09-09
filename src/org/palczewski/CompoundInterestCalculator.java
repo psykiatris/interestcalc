@@ -1,6 +1,7 @@
 package org.palczewski;
 
 import java.nio.charset.StandardCharsets;
+import java.time.Period;
 import java.time.YearMonth;
 import java.util.Scanner;
 
@@ -29,6 +30,7 @@ public class CompoundInterestCalculator {
             sum += getDailyInt(balance, intRate);
         }
         System.out.printf("Total interest earned: %.2f%n", sum);
+
     }
 
     private static double getDailyInt(double balance, double intRate) {
