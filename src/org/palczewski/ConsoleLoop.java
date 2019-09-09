@@ -22,10 +22,24 @@ public class ConsoleLoop {
             System.out.println("Enter each day's balance for the billing period:");
             System.out.println();
             System.out.print("Enter begin date:");
+            int cycle = 30;
             LocalDate beginDate = LocalDate.parse(in.nextLine());
-            LocalDate cyclePeriod = beginDate.plus(30, ChronoUnit.DAYS);
+            LocalDate endDate = beginDate.plus(cycle, ChronoUnit.DAYS);
             System.out.printf("Statment cycle is: %s thru %s%n",
-                    beginDate, cyclePeriod);
+                    beginDate, (endDate.minus(1, ChronoUnit.DAYS)));
+            // Unexpected behavior forces me to subtract 1 day
+            // to get this to display corectly
+            // loop works as expected.
+
+
+            // Begin loop
+            // Need to advance days manually
+            for(int i = 1; i <= cycle; i++) {
+                System.out.printf("%s : %d%n", beginDate, i);
+                beginDate = beginDate.plus(1, ChronoUnit.DAYS);
+            }
+
+
 
         }
     }
