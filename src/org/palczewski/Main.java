@@ -15,8 +15,30 @@ public class Main {
          */
         try (Scanner in = new Scanner(System.in, StandardCharsets.UTF_8)) {
 
-            System.out.println("Nifty interest calculator");
-            System.out.printf("See the interest you could earn in one month.%n");
+            System.out.println("\tNifty interest calculator");
+            System.out.printf("Calculates interest earned or charged%non a bank savings or credit card account.%n");
+            System.out.printf("\tEnter an option:%n\t%2d - %-11s%n\t%2d - %-11s%n\t%2d - %-11s%n", 1, "Savings", 2, "Credit Card", 9, "Quit");
+
+            int choice = 0;
+            boolean flag = true;
+            // Process the choice
+            do {
+                System.out.print("Make a choice: ");
+                choice = in.nextInt();
+                if(choice == 1) {
+                    System.out.println("You chose Savings");
+                    flag = false;
+
+                } else if (choice == 2) {
+                    System.out.println("You chose Credit Card");
+                    flag = false;
+                } else if (choice == 9) {
+                    System.out.println("Exiting");
+                    System.exit(0);
+                } else {
+                    System.out.println("You did not make a valid choice");
+                }
+            } while (flag);
             System.out.print("Enter month:  ");
             int month = in.nextInt();
             System.out.print("Enter year: ");
