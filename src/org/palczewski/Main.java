@@ -2,6 +2,8 @@ package org.palczewski;
 
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
+import java.time.YearMonth;
+import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 /*
 This is the main entry for the program, which calculates interest based
@@ -25,7 +27,7 @@ public class Main {
          */
         try (Scanner in = new Scanner(System.in, StandardCharsets.UTF_8)) {
 
-            System.out.println("\tNifty interest calculator");
+            System.out.println("\tBoyd interest calculator");
             System.out.printf("Calculates interest earned or charged%non a bank savings or credit card account.%n");
             System.out.printf("\tEnter an option:%n\t%2d - %-11s%n\t%2d - %-11s%n\t%2d - %-11s%n", 1, "Savings", 2, "Credit Card", 9, "Quit");
 
@@ -41,7 +43,23 @@ public class Main {
                 System.out.print("Make a choice: ");
                 choice = in.nextInt();
                 if(choice == 1) {
-                    System.out.println("You chose Savings");
+                    System.out.print("You chose Savings\r");
+
+                    System.out.println();
+                    // Get more info from user
+                    System.out.print("Enter beginning date: ");
+                    startDate = LocalDate.parse(in.next());
+                    int year = startDate.getYear();
+                    int month = startDate.getMonthValue();
+                    YearMonth ym = YearMonth.of(year, month);
+                    cycle = ym.lengthOfMonth();
+                    LocalDate endDate = startDate.plus(cycle -1,
+                            ChronoUnit.DAYS);
+                    System.out.printf("Statement period: %1$tm-%1$td-%1$tY to %2$tm-%2$td-%2$tY%n",
+                            startDate, endDate);
+                    System.out.printf("Cycle is %d days.%n", cycle);
+
+
                     flag = false;
 
                 } else if (choice == 2) {
