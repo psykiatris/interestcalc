@@ -1,8 +1,18 @@
 package org.palczewski;
 
 import java.nio.charset.StandardCharsets;
+import java.time.LocalDate;
 import java.util.Scanner;
-
+/*
+This is the main entry for the program, which calculates interest based
+on the cycle period, APR and daly balance. Credit card and savings work
+the same way. The only difference is the length of the cycle period.
+    Credit cards have 30 day cycles that begin on a particular day.
+    Savings accounts have differnet days (28, 29, 30 or 31 days in their
+     cycle).
+So, the user choosed an option, which will determine the cycle and pass
+the information to the actual function, which is very simple.
+ */
 public class Main {
 
     public static void main(String[] args) {
@@ -20,6 +30,11 @@ public class Main {
             System.out.printf("\tEnter an option:%n\t%2d - %-11s%n\t%2d - %-11s%n\t%2d - %-11s%n", 1, "Savings", 2, "Credit Card", 9, "Quit");
 
             int choice = 0;
+            // Params o pass to function
+            LocalDate startDate;
+            int cycle = 0;
+            double balance = 0;
+            double apr = 0;
             boolean flag = true;
             // Process the choice
             do {
@@ -39,12 +54,14 @@ public class Main {
                     System.out.println("You did not make a valid choice");
                 }
             } while (flag);
+
+            // Move following code to the chice menu.
             System.out.print("Enter month:  ");
             int month = in.nextInt();
             System.out.print("Enter year: ");
             int year = in.nextInt();
             System.out.print("Enter balance: ");
-            double balance = in.nextDouble();
+            balance = in.nextDouble();
             System.out.print("Enter interest rate: ");
             double intRate = in.nextDouble();
 
