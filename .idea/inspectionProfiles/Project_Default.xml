@@ -3309,6 +3309,7 @@
         <option name="ignoredClasses">
           <set>
             <option value="org.palczewski.CompoundInterestCalculator" />
+            <option value="org.palczewski.InterestCalculator" />
           </set>
         </option>
       </scope>
