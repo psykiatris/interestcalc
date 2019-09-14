@@ -58,6 +58,10 @@ public class Main {
                     System.out.printf("Statement period: %1$tm-%1$td-%1$tY to %2$tm-%2$td-%2$tY%n",
                             startDate, endDate);
                     System.out.printf("Cycle is %d days.%n", cycle);
+                    System.out.print("Now enter the APR: ");
+                    apr = in.nextDouble();
+                    // Now the info is collected, pass to function
+
 
 
                     flag = false;
@@ -73,20 +77,9 @@ public class Main {
                 }
             } while (flag);
 
-            // Move following code to the chice menu.
-            System.out.print("Enter month:  ");
-            int month = in.nextInt();
-            System.out.print("Enter year: ");
-            int year = in.nextInt();
-            System.out.print("Enter balance: ");
-            balance = in.nextDouble();
-            System.out.print("Enter interest rate: ");
-            double intRate = in.nextDouble();
-
-            // TODO: 9/8/19 Change Scanner to a multiple choice for different functions.
-            new CompoundInterestCalculator(balance, intRate, year, month);
-
-
+            // Finsihing up.
+            System.out.println();
+            System.out.println("Thank you for using Boyc Calculator!");
 
         }
 
