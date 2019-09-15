@@ -1,9 +1,8 @@
 package org.palczewski;
 
 import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.time.temporal.ChronoUnit;
+import java.util.*;
 
 /*
 Consolicate ConsoleLoop and CompundInterest classes into one for
@@ -33,9 +32,34 @@ public class InterestCalculator {
         this.apr = apr;
 
         // input figures
-        System.out.print("Enter a daily balance: ");
-        dailyBalance.put(startDate, in.nextDouble());
-        System.out.printf("The APR is %2.2f%n", apr);
-    }
+        System.out.printf("Begin entering each day's balance for the period.%n");
+        LocalDate start = startDate;
+        for(int i = 1; i <= cycle; i++) {
+            System.out.printf("%s : ", start);
+            dailyBalance.put(start, in.nextDouble());
+            start = start.plus(1, ChronoUnit.DAYS);
+        }
+        System.out.println();
+        System.out.printf("Average balance: %,10.2f%n", getAvgBal(dailyBalance));
+        }
+        
+        private double getDailyRate(double apr) {
+        // First convert apr to decimal
+            double res = apr / 100;
+            // Divide res by days of year to 
+            // get Daily Rate
+            return res / 365;
+        }
+        
+        private double getAvgBal(Map dailyBalance) {
+        // Process set to get average balance
+            double sum = 0;
+            dailyBalance.forEach((k, v) -> sum += (v));
+            return sum / cycle;
+        }
+        
+        
 
 }
+
+
