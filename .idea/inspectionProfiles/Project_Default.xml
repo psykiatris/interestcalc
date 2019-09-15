@@ -3158,7 +3158,7 @@
       <scope name="Production" level="INFORMATION" enabled="true" />
     </inspection_tool>
     <inspection_tool class="RawUseOfParameterizedType" enabled="true" level="WARNING" enabled_by_default="true">
-      <scope name="Production" level="WARNING" enabled="true" />
+      <scope name="Production" level="WARNING" enabled="false" />
     </inspection_tool>
     <inspection_tool class="ReadObjectAndWriteObjectPrivate" enabled="true" level="WARNING" enabled_by_default="true">
       <scope name="Production" level="WARNING" enabled="true" />
