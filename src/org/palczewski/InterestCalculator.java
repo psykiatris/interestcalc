@@ -66,15 +66,8 @@ public class InterestCalculator {
 
 
     @Override
-    public String toString() {
-        return "InterestCalculator{" +
-                "dailyBalance=" + dailyBalance +
-                ", startDate=" + startDate +
-                ", endDate=" + endDate +
-                ", cycle=" + cycle +
-                ", apr=" + apr +
-                ", in=" + in +
-                '}';
+    public final String toString() {
+        return String.format("InterestCalculator{dailyBalance=%s, startDate=%s, endDate=%s, cycle=%d, apr=%s, in=%s}", dailyBalance, startDate, endDate, cycle, apr, in);
     }
 }
 
