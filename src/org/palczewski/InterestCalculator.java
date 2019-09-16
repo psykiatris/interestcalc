@@ -16,11 +16,11 @@ public class InterestCalculator {
     // Map to store date and daily balance.
     private final Map<LocalDate, Double> dailyBalance =
             new HashMap<>(31);
-    private LocalDate startDate = null;
-    private LocalDate endDate = null;
-    private int cycle = 0;
-    private double apr = 0.0;
-    private Scanner in = null;
+    private final LocalDate startDate;
+    private final LocalDate endDate;
+    private final int cycle;
+    private final double apr;
+    private final Scanner in;
 
     InterestCalculator(Scanner in, LocalDate startDate,
                        LocalDate endDate,int cycle,
@@ -41,8 +41,11 @@ public class InterestCalculator {
             start = start.plus(1, ChronoUnit.DAYS);
         }
         System.out.println();
+        double avgBalance = getAvgBal(dailyBalance);
         System.out.printf("Average balance: $%,10.2f%n",
-                getAvgBal(dailyBalance));
+                avgBalance);
+        System.out.printf("Interest earned/charged: $%4.2f%n",
+                computeInterest(apr, avgBalance));
         }
         
         private double getDailyRate(double apr) {
@@ -54,14 +57,20 @@ public class InterestCalculator {
         }
         
         private double getAvgBal(Map<LocalDate, Double> dailyBalance) {
-        // Process set to get average balance
+        // Iterate map to sum values
             double sum = 0;
-            // Create set
+
             for (Map.Entry<LocalDate, Double> entry : dailyBalance.entrySet()) {
                 sum += entry.getValue();
 
             }
             return sum / cycle;
+        }
+
+        private double computeInterest(double apr, double avgBal) {
+        double dailyRate = getDailyRate(apr);
+        return (avgBal * dailyRate) * cycle;
+
         }
 
 

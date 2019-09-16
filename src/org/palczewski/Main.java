@@ -85,6 +85,8 @@ public class Main {
                         System.out.print("Enter the APR: ");
                         apr = in.nextDouble();
                         System.out.printf("Using APR of %2.2f%%%n", apr);
+                        new InterestCalculator(in, startDate, endDate,
+                                cycle, apr);
                         flag = false;
                         break;
                     }
