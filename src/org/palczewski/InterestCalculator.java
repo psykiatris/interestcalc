@@ -15,7 +15,7 @@ public class InterestCalculator {
 
     // Map to store date and daily balance.
     private final Map<LocalDate, Double> dailyBalance =
-            new HashMap<>(31);
+            new LinkedHashMap<>(31);
     private final LocalDate startDate;
     private final LocalDate endDate;
     private final int cycle;
@@ -63,11 +63,16 @@ public class InterestCalculator {
     private void displayTable() {
         // iterate map showing entries
         System.out.println();
+        System.out.println("    Date   \t       Balance");
+        System.out.println("===========================");
         for (Map.Entry<LocalDate, Double> entry : dailyBalance.entrySet()) {
-            System.out.printf("| %s\t$%,7.2f |%n",
+            System.out.printf("| %1$tm-%1$td-%tY\t$%,9.2f |%n",
                     entry.getKey(), entry.getValue());
+            System.out.println("---------------------------");
+
 
         }
+
     }
 
 
