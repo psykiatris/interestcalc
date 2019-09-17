@@ -44,9 +44,33 @@ public class InterestCalculator {
         double avgBalance = getAvgBal(dailyBalance);
         System.out.printf("Average balance: $%,10.2f%n",
                 avgBalance);
-        System.out.printf("Interest earned/charged: $%4.2f%n",
+        System.out.printf("Interest earned/charged: $%,4.2f%n",
                 computeInterest(apr, avgBalance));
+        System.out.println();
+        // Choice to display table
+        System.out.print("Display table? Y|n ");
+        String option = in.next();
+        if ("Y".equals(option)) {
+            displayTable();
+        } else if ("n".equals(option)) {
+        } else {
+            throw new IllegalStateException("Unexpected value: " + option);
         }
+
+
+    }
+
+    private void displayTable() {
+        // iterate map showing entries
+        System.out.println();
+        for (Map.Entry<LocalDate, Double> entry : dailyBalance.entrySet()) {
+            System.out.printf("| %s\t$%,7.2f |%n",
+                    entry.getKey(), entry.getValue());
+
+        }
+    }
+
+
         
         private double getDailyRate(double apr) {
         // First convert apr to decimal

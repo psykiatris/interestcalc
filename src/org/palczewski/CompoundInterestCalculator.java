@@ -24,7 +24,7 @@ public class CompoundInterestCalculator {
         System.out.println("Day  Balance\tInterest\tDaily Interest");
         double sum = 0;
         for(int i = 1; i < (getDays(year, month) + 1); i++) {
-            System.out.printf("%d $%.2f\t%.2f%%\t%.9f%n", i, balance,
+            System.out.printf("%d $%,7.2f\t%.2f%%\t%.9f%n", i, balance,
                     intRate,
                     getDailyInt(balance, intRate));
             sum += getDailyInt(balance, intRate);
