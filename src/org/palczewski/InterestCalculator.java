@@ -63,12 +63,12 @@ public class InterestCalculator {
     private void displayTable() {
         // iterate map showing entries
         System.out.println();
-        System.out.println("    Date   \t       Balance");
-        System.out.println("===========================");
+        System.out.printf("%-10s %14s%n", "Date", "Balance");
+        System.out.println("=".repeat(25));
         for (Map.Entry<LocalDate, Double> entry : dailyBalance.entrySet()) {
-            System.out.printf("| %1$tm-%1$td-%tY\t$%,9.2f |%n",
+            System.out.printf("| %1$tm-%1$td-%tY $%,9.2f |%n",
                     entry.getKey(), entry.getValue());
-            System.out.println("---------------------------");
+            System.out.println("-".repeat(25));
 
 
         }
