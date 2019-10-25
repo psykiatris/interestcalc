@@ -16,6 +16,7 @@ public class APY {
         System.out.printf("Balance: $%,.2f%nInterest rate: %.2f%%%nInterest paid yearly: $%,.2f%n= monthly: $%,.2f%n", balance,
                 intRate,
                 balance * res, (balance * res) / 12);
+        System.out.printf("True APY is: %,.2f%%%n", res * 100);
     }
 
     public static void main(String[] args) {
