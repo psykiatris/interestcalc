@@ -10,12 +10,13 @@ public class Amortized {
 
 
 
-    Amortized(double p, double rate, int periods) {
+    Amortized(double p, double rate, double periods) {
         double moInt = (rate / 100) / 12;
 
         double payment =
                 p * (moInt / (1 - (Math.pow(1/(1 + moInt), periods))));
-        System.out.printf("Based on principal of $%,.2f for %d months,%nat %.2f%%, your payments would be $%,.2f%n", p
+        System.out.printf("Based on principal of $%,.2f for %.1f months," +
+                        "%nat %.2f%%, your payments would be $%,.2f%n", p
                 , periods,
                 rate,
                 payment);
@@ -30,7 +31,7 @@ public class Amortized {
             System.out.print("Enter interest rate: ");
             double rate = in.nextDouble();
             System.out.print("How many years? ");
-            int periods = in.nextInt() * 12;
+            double periods = in.nextDouble() * 12;
             new Amortized(prin, rate, periods);
         }
 
