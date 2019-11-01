@@ -1,6 +1,7 @@
 package org.palczewski;
 
 import javax.swing.*;
+import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 /*
@@ -24,7 +25,7 @@ public class Amortized {
     }
 
     public static void main(String[] args) {
-        try (Scanner in = new Scanner(System.in)) {
+        try (Scanner in = new Scanner(System.in, StandardCharsets.UTF_8)) {
             System.out.println("Calculated payments on mortgage");
             System.out.print("Enter principal amt: ");
             double prin = in.nextDouble();
