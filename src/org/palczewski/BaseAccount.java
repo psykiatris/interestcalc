@@ -9,7 +9,7 @@ public class BaseAccount {
 
     private final double balance;
     private final double apr;
-    private final double period;
+    private static double period = 0.0;
     
     BaseAccount(double balance, double apr, LocalDate date) {
         this.balance = balance;
@@ -19,9 +19,21 @@ public class BaseAccount {
 
     }
 
-    public static void main(String[] args) {
+    public final double getBalance() {
+        return balance;
+    }
 
+    public final double getApr() {
+        return apr;
+    }
+
+    public final double getPeriod() {
+        return period;
     }
 
 
+    @Override
+    public final String toString() {
+        return String.format("Balance: %s%nAPR: %s%n", balance, apr);
+    }
 }
