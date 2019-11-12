@@ -19,7 +19,7 @@ public class BaseAccount {
         this.balance = balance;
         this.apr = apr;
         this.date = date;
-        period = date.lengthOfMonth();
+        period = daysInPeriod(date);
 
     }
 
@@ -41,6 +41,12 @@ public class BaseAccount {
     @Contract(pure = true)
     public final LocalDate getDate() {
         return date;
+    }
+
+    @Contract(pure = true)
+    private int daysInPeriod(@NotNull LocalDate date) {
+        // Gets days in period
+        return date.lengthOfMonth();
     }
 
 
