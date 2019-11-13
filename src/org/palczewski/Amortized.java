@@ -16,7 +16,7 @@ public class Amortized {
 
         double payment =
                 p * (moInt / (1 - (Math.pow(1/(1 + moInt), periods))));
-        System.out.printf("Based on principal of $%,.2f for %.1f months," +
+        System.out.printf("Based on principal of $%,.2f for %.0f months," +
                         "%nat %.2f%%, your payments would be $%,.2f%n", p
                 , periods,
                 rate,
