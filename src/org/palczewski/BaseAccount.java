@@ -52,15 +52,14 @@ public class BaseAccount {
 
     @Override
     public final String toString() {
-        return String.format("Balance: $%,.2f%nAPR: %.2f%%%nDate: %3$tB " +
-                        "%3$tY",
+        return String.format("Balance: $%,.2f%nAPR: %.2f%%%nDate: %3$tB %3$tY",
                 balance,
                 apr, date);
     }
 
     // Self-test
     public static void main(String[] args) {
-        String m = "2020-02-15";
+        String m = "2020-11-10";
         BaseAccount acct = new BaseAccount(1000, 1.88, LocalDate.parse(m));
         System.out.println(acct);
         System.out.printf("Days in period: %.0f%n", period);
