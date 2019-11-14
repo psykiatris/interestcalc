@@ -2,6 +2,7 @@ package org.palczewski;
 
 import javax.swing.*;
 import java.nio.charset.StandardCharsets;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 /*
@@ -17,10 +18,39 @@ public class Amortized {
         double payment =
                 p * (moInt / (1 - (StrictMath.pow(1/(1 + moInt), periods))));
         System.out.printf("Based on principal of $%,.2f for %.0f months," +
-                        "%nat %.2f%%, your payments would be $%,.2f%n", p
+                        "%nat %.3f%%, your payments would be $%,.2f%n", p
                 , periods,
                 rate,
                 payment);
+        // print table
+        amortizationSchedule(p, rate, LocalDate.now(),
+                periods / 12, payment);
+
+    }
+
+    private void amortizationSchedule(double prin, double rate,
+                                      LocalDate startDate, double years,
+                                      double pmt) {
+        // Change interest to decimal format
+        LocalDate date = startDate;
+        double v = prin;
+        double moRate = rate / (12 * 100);
+        double period = years * 12;
+
+        // Loop to display table
+        for(int i = 0; i < period; i++) {
+            double moInterest = v * moRate;
+            double newPrin = pmt - moInterest;
+            double newBal = v - newPrin;
+            System.out.printf("%1$tb %tY P: $%,.2f I: $%,.2f%n",
+                    date, v, moInterest);
+            v = newBal;
+            date = date.plusMonths(1);
+
+        }
+
+
+
 
     }
 
