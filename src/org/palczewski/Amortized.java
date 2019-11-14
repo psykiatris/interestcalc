@@ -43,7 +43,8 @@ public class Amortized {
             double moInterest = v * moRate;
             double newPrin = pmt - moInterest;
             double newBal = v - newPrin;
-            System.out.printf("%1$tb %tY Bal: %,.2f P: $%,.2f I: $%,.2f%n",
+            System.out.printf("%1$tb %tY Bal: $%,.2f P: $%,.2f I: $%," +
+                            ".2f%n",
                     date, v, newPrin, moInterest);
             v = newBal;
             date = date.plusMonths(1);
