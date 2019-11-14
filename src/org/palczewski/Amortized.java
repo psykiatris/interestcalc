@@ -1,5 +1,7 @@
 package org.palczewski;
 
+import org.w3c.dom.ls.LSOutput;
+
 import javax.swing.*;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
@@ -19,7 +21,9 @@ public class Amortized {
                 p * (moInt / (1 - (StrictMath.pow(1/(1 + moInt), periods))));
         // print table
         amortizationSchedule(p, rate, LocalDate.now(),
+
                 periods / 12, payment);
+        System.out.println("\t===Summary of payments===");
         System.out.printf("Based on principal of $%,.2f for %.0f months," +
                         "%nat %.3f%%, your payments would be $%,.2f%n", p
                 , periods,
