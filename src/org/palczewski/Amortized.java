@@ -37,6 +37,7 @@ public class Amortized {
         double moRate = rate / (12 * 100);
         double period = years * 12;
 
+        System.out.println("\tAmortization Table");
         // Loop to display table
         for(int i = 0; i < period; i++) {
             double moInterest = v * moRate;
