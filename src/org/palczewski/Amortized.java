@@ -37,14 +37,14 @@ public class Amortized {
         double moRate = rate / (12 * 100);
         double period = years * 12;
 
-        System.out.println("\tAmortization Table");
+        System.out.println("\t===Amortization Table===");
         // Loop to display table
         for(int i = 0; i < period; i++) {
             double moInterest = v * moRate;
             double newPrin = pmt - moInterest;
-            double newBal = v - newPrin;
-            System.out.printf("%1$tb %tY P: $%,.2f I: $%,.2f%n",
-                    date, v, moInterest);
+            double newBal = v - pmt;
+            System.out.printf("%1$tb %tY Bal: %,.2f P: $%,.2f I: $%,.2f%n",
+                    date, v, newPrin, moInterest);
             v = newBal;
             date = date.plusMonths(1);
 
