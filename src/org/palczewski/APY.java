@@ -28,15 +28,19 @@ public class APY {
         double bal = startBal;
         double moRate = rate / (12 * 100);
         double month = term * 12;
+        double newBal = 0;
 
         for(int i = 0; i < month; i++) {
             double moInt = bal * moRate;
-            double newBal = bal + moInt;
+            newBal = bal + moInt;
             System.out.printf("%1$tb %tY - Bal: $%,.2f Int: $%,.2f%n",
                     localDate, newBal, moInt);
             bal = newBal + invBal;
             localDate = localDate.plusMonths(1);
         }
+        System.out.println("\t===Results===");
+        System.out.printf("After %.0f months, with an initail balance of %n$%,.2f and a momthly deposit of $%,.2f,%n your final balance would be $%,.2f", month, startBal, invBal
+                , newBal);
     }
 
     public static void main(String[] args) {
