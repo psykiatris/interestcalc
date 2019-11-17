@@ -5,9 +5,8 @@ import java.util.Scanner;
 
 public class APY {
 
-    APY(double startBal, double newBal, double intRate,
+    APY(double totalInt, double intRate,
         double period) {
-        double paidInterest = newBal - startBal;
         double apr = intRate / 100;
         // first part of formula
         double compoundRate = period * 12;
@@ -21,9 +20,9 @@ public class APY {
                         ".2f%%%nYearly interest: $%,.2f%n=  average " +
                         "monthly " +
                         "interest of: $%,.2f%n",
-                paidInterest,
+                totalInt,
                 intRate,
-                (paidInterest / period), (paidInterest /
+                (totalInt / period), (totalInt /
                 compoundRate));
         System.out.printf("True APY is: %,.2f%%%n", res * 100);
 
@@ -38,9 +37,11 @@ public class APY {
         double moRate = rate / (12 * 100);
         double month = term * 12;
         double newBal = 0;
+        double totalInt = 0;
 
         for(int i = 0; i < month; i++) {
             double moInt = bal * moRate;
+            totalInt += moInt;
             newBal = bal + moInt;
             System.out.printf("%1$tb %tY - Bal: $%,.2f Int: $%,.2f%n",
                     localDate, newBal, moInt);
@@ -50,7 +51,7 @@ public class APY {
         System.out.println("\t===Results===");
         System.out.printf("After %.0f months, with an initail balance of %n$%,.2f and a monthly deposit of $%,.2f,%n your final balance would be $%,.2f%n", month, startBal, invBal
                 , newBal);
-        return newBal;
+        return totalInt;
     }
 
     public static void main(String[] args) {
@@ -69,7 +70,7 @@ public class APY {
                     invBal, term);
 
             // Pass along
-            new APY(bal, resBal, interest, term);
+            new APY(resBal, interest, term);
         }
 
     }
