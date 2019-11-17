@@ -5,7 +5,9 @@ import java.util.Scanner;
 
 public class APY {
 
-    APY(double balance, double intRate, double period) {
+    APY(double startBal, double newBal, double intRate,
+        double period) {
+        double paidInterest = newBal - startBal;
         double apr = intRate / 100;
         // first part of formula
         double compoundRate = period * 12;
@@ -15,11 +17,14 @@ public class APY {
         double res = (StrictMath.pow(form, compoundRate) - 1);
 
         System.out.println("\t===APY===");
-        System.out.printf("Balance: $%,.2f%nInterest rate: %.2f%%%nInterest paid yearly: $%,.2f%n=  average monthly interest of: $%,.2f%n",
-                balance,
+        System.out.printf("Total interest paid: $%,.2f%nInterest rate: %" +
+                        ".2f%%%nYearly interest: $%,.2f%n=  average " +
+                        "monthly " +
+                        "interest of: $%,.2f%n",
+                paidInterest,
                 intRate,
-                (balance * res) / period, (balance * res) /
-                compoundRate);
+                (paidInterest / period), (paidInterest /
+                compoundRate));
         System.out.printf("True APY is: %,.2f%%%n", res * 100);
 
     }
@@ -64,7 +69,7 @@ public class APY {
                     invBal, term);
 
             // Pass along
-            new APY(resBal, interest, term);
+            new APY(bal, resBal, interest, term);
         }
 
     }
