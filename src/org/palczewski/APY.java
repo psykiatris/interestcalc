@@ -5,23 +5,27 @@ import java.util.Scanner;
 
 public class APY {
 
-    APY(double balance, double intRate) {
+    APY(double balance, double intRate, double period) {
         double apr = intRate / 100;
         // first part of formula
-        double compoundRate = 12;
+        double compoundRate = period * 12;
         double form = 1 + (apr / compoundRate);
 
         // The rest of the formula
         double res = (StrictMath.pow(form, compoundRate) - 1);
 
-        System.out.printf("Balance: $%,.2f%nInterest rate: %.2f%%%nInterest paid yearly: $%,.2f%n= monthly: $%,.2f%n", balance,
+        System.out.println("\t===APY===");
+        System.out.printf("Balance: $%,.2f%nInterest rate: %.2f%%%nInterest paid yearly: $%,.2f%n=  average monthly interest of: $%,.2f%n",
+                balance,
                 intRate,
-                balance * res, (balance * res) / 12);
+                (balance * res) / period, (balance * res) /
+                compoundRate);
         System.out.printf("True APY is: %,.2f%%%n", res * 100);
 
     }
 
-    private static void growthTable(double startBal, double rate, LocalDate date
+    private static double growthTable(double startBal, double rate,
+                                 LocalDate date
             , double invBal, double term) {
 
         LocalDate localDate = date;
@@ -39,8 +43,9 @@ public class APY {
             localDate = localDate.plusMonths(1);
         }
         System.out.println("\t===Results===");
-        System.out.printf("After %.0f months, with an initail balance of %n$%,.2f and a momthly deposit of $%,.2f,%n your final balance would be $%,.2f", month, startBal, invBal
+        System.out.printf("After %.0f months, with an initail balance of %n$%,.2f and a monthly deposit of $%,.2f,%n your final balance would be $%,.2f%n", month, startBal, invBal
                 , newBal);
+        return newBal;
     }
 
     public static void main(String[] args) {
@@ -55,10 +60,11 @@ public class APY {
             System.out.print("Enter term in years: ");
             double term = in.nextDouble();
 
-            growthTable(bal, interest,LocalDate.now(), invBal, term);
+            double resBal = growthTable(bal, interest,LocalDate.now(),
+                    invBal, term);
 
             // Pass along
-            // new APY(bal, interest);
+            new APY(resBal, interest, term);
         }
 
     }
