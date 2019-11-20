@@ -23,8 +23,9 @@ public class ConsoleLoop {
             System.out.println("Enter each day's balance for the billing period:");
             System.out.println();
             System.out.print("Enter begin date: ");
-            int cycle = 30;
+
             LocalDate beginDate = LocalDate.parse(in.nextLine());
+            int cycle = beginDate.lengthOfMonth();
             LocalDate endDate = beginDate.plus(cycle, ChronoUnit.DAYS);
             System.out.print("Enter APR: ");
             double apr = in.nextDouble();
