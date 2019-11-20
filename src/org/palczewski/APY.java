@@ -9,11 +9,11 @@ public class APY {
         double period) {
         double apr = intRate / 100;
         // first part of formula
-        double compoundRate = period * 12;
-        double form = 1 + (apr / compoundRate);
+        double months = period * 12;
+        double form = 1 + (apr / months);
 
         // The rest of the formula
-        double res = (StrictMath.pow(form, compoundRate) - 1);
+        double res = (StrictMath.pow(form, months) - 1);
 
         System.out.println("\t===APY===");
         System.out.printf("Total interest paid: $%,.2f%nInterest rate: %" +
@@ -23,7 +23,7 @@ public class APY {
                 totalInt,
                 intRate,
                 (totalInt / period), (totalInt /
-                compoundRate));
+                months));
         System.out.printf("True APY is: %,.2f%%%n", res * 100);
 
     }
