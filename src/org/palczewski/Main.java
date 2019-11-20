@@ -75,7 +75,7 @@ public class Main {
                         // Get more info from user
                         System.out.print("Enter statement start date: ");
                         startDate = LocalDate.parse(in.next());
-                        cycle = 30;
+                        cycle = startDate.lengthOfMonth();
                         LocalDate endDate = startDate.plus(cycle - 1,
                                 ChronoUnit.DAYS);
                         System.out.printf("Cycle period: %1$tm-%1$td-%1$tY " +

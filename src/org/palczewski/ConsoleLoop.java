@@ -26,6 +26,7 @@ public class ConsoleLoop {
 
             LocalDate beginDate = LocalDate.parse(in.nextLine());
             int cycle = beginDate.lengthOfMonth();
+
             LocalDate endDate = beginDate.plus(cycle, ChronoUnit.DAYS);
             System.out.print("Enter APR: ");
             double apr = in.nextDouble();
