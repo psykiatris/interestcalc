@@ -8,26 +8,17 @@ import java.util.Scanner;
 /*
 This is the main entry for the program, which calculates interest based
 on the cycle period, APR and daly balance. Credit card and savings work
-the same way. The only difference is the length of the cycle period.
-    Credit cards have 30 day cycles that begin on a particular day.
-    Savings accounts have differnet days (28, 29, 30 or 31 days in their
-     cycle).
-So, the user choosed an option, which will determine the cycle and pass
+the same way.
+So, the user chooses an option, which will determine the cycle and pass
 the information to the actual function, which is very simple.
  */
 public class Main {
 
     public static void main(String[] args) {
 
-        /*
-        Why I use the Scanner object: it allows you to process console
-        functions within the IDE. If you use java.console, the IDE can't
-         run it properly. You have to build the JAR and run it from the
-         terminal.
-         */
         try (Scanner in = new Scanner(System.in, StandardCharsets.UTF_8)) {
 
-            System.out.println("\tBoyd Interest Calculator");
+            System.out.println("\tBoyd Financial Calculator");
             System.out.printf("Calculates interest earned or charged%non a bank savings or credit card account.%n");
             System.out.printf("\tEnter an option:%n\t%2d - %-11s%n\t%2d - %-11s%n\t%2d - %-11s%n", 1, "Savings", 2, "Credit Card", 9, "Quit");
 
@@ -91,7 +82,7 @@ public class Main {
                         break;
                     }
                     case 9:
-                        System.out.println("Exiting chice menu.");
+                        System.out.println("Exiting choice menu.");
                         System.exit(0);
                     default:
                         System.out.println("You did not make a valid choice");
@@ -101,7 +92,7 @@ public class Main {
 
             // Finsihing up.
             System.out.println();
-            System.out.println("Thank you for using Boyd Calculator!");
+            System.out.println("Thank you for using Boyd Financial Calculator!");
 
         }
 
