@@ -48,13 +48,14 @@ public class InterestCalculator {
                 computeInterest(apr, avgBalance));
         System.out.println();
         // Choice to display table
-        System.out.print("Display table? Y|n ");
+        System.out.print("Display table? [Y|n] ");
         String option = in.next();
         if ("Y".equals(option)) {
             displayTable();
         } else if ("n".equals(option)) {
+            System.out.println("Exiting");
         } else {
-            throw new IllegalStateException("Unexpected value: " + option);
+            throw new IllegalStateException(String.format("Unexpected value: %s", option));
         }
 
 
