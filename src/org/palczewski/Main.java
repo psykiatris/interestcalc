@@ -20,7 +20,9 @@ public class Main {
 
             System.out.println("\tBoyd Financial Calculator");
             System.out.printf("Calculates interest earned or charged%non a bank savings or credit card account.%n");
-            System.out.printf("\tEnter an option:%n\t%2d - %-11s%n\t%2d - %-11s%n\t%2d - %-11s%n", 1, "Savings", 2, "Credit Card", 9, "Quit");
+            System.out.printf("\tEnter an option:%n\t%2d - %-11s%n\t%2d " +
+                    "- %-11s%n\t%2d - %-11s%n\t%2d - %-11s%n", 1, "Savings", 2,
+                    "Credit Card", 3, "Find Cycle", 9, "Quit");
 
             int choice = 0;
             // Params to pass to function
@@ -79,6 +81,18 @@ public class Main {
                         new InterestCalculator(in, startDate, endDate,
                                 cycle, apr);
                         flag = false;
+                        break;
+                    }
+                    case 3: {
+                        System.out.print("Enter start date: ");
+                        startDate = LocalDate.parse(in.next());
+                        cycle = startDate.lengthOfMonth();
+                        LocalDate endDate = startDate.plus(cycle - 1,
+                                ChronoUnit.DAYS);
+                        System.out.printf("Cycle: %1$tm-%1$td-%1$tY " +
+                                        "to %2$tm-%2$td-%2$tY%n",
+                                startDate, endDate);
+                        System.out.printf("Period is %d days.%n", cycle);
                         break;
                     }
                     case 9:
