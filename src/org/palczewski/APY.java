@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class APY {
 
+
     APY(double totalInt, double intRate,
         double period) {
         double apr = intRate / 100;
@@ -49,7 +50,7 @@ public class APY {
             localDate = localDate.plusMonths(1);
         }
         System.out.println("\t===Results===");
-        System.out.printf("After %.0f months, with an initail balance of %n$%,.2f and a monthly deposit of $%,.2f,%n your final balance would be $%,.2f%n", month, startBal, invBal
+        System.out.printf("After %.0f months, with an initial balance of %n$%,.2f and a monthly deposit of $%,.2f,%n your final balance would be $%,.2f%n", month, startBal, invBal
                 , newBal);
         return totalInt;
     }
@@ -59,7 +60,7 @@ public class APY {
             // Get figures
             System.out.print("Enter a balance: ");
             double bal = in.nextDouble();
-            System.out.print("Enter interest rate: ");
+            System.out.print("Enter Annual Percent Rate: ");
             double interest = in.nextDouble();
             System.out.print("Enter amount to invest monthly: ");
             double invBal = in.nextDouble();

@@ -1,18 +1,15 @@
 package org.palczewski;
 
-import org.w3c.dom.ls.LSOutput;
-
-import javax.swing.*;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 /*
-Daclulates amoritzed payments for loans, mortgages, etc.
+Caclulates amoritzed payments for loans, mortgages, etc.
  */
 public class Amortized {
-
-
 
     Amortized(double p, double rate, double periods) {
         double moInt = rate / (12 * 100);
