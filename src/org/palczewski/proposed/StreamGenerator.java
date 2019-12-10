@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 
 public class StreamGenerator {
 
-    public Stream<List<LocalDate>> generateMonth(LocalDate date) {
+    public Stream<List<LocalDate>> generateCycleDays(LocalDate date) {
         List<LocalDate> daysList = new ArrayList<>(1);
         int cycle = date.lengthOfMonth();
         LocalDate endDate = date.plusDays(cycle);
