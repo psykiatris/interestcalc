@@ -2,10 +2,7 @@ package org.palczewski.proposed;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Spliterator;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -31,20 +28,21 @@ public class StreamGenerator {
 
     // Self-test method
     public static void main(String[] args) {
-        // Create a date
+        // Using today's date
         LocalDate date = LocalDate.now();
-        // Print results of returned stream
 
+        // Create list from Stream
         List<LocalDate> res =
                 generateCycleDays(date)
                         .collect(Collectors.toList());
 
-
+        // Print results of returned stream
         System.out.println(res);
         System.out.printf("First day of cycle: %s%n", res.get(0));
+        System.out.printf("15th day of cycle: %s%n", res.get(14));
 
-
-        // Length
+        // Printing size of list, which
+        // should match days of cycle.
         System.out.println(String.format("Cycle is: %d days",
                 res.size()));
 
