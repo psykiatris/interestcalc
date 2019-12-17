@@ -66,12 +66,9 @@ public class Amortized {
             date = date.plusMonths(1);
 
         }
-
-
-
-
     }
 
+    // Stand-alone app
     public static void main(String[] args) {
         try (Scanner in = new Scanner(System.in, StandardCharsets.UTF_8)) {
             System.out.println("Calculated payments on mortgage");
