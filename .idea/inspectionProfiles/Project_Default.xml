@@ -3308,6 +3308,7 @@
       <scope name="Production" level="WARNING" enabled="true">
         <option name="ignoredClasses">
           <set>
+            <option value="org.palczewski.Amortized" />
             <option value="org.palczewski.CompoundInterestCalculator" />
             <option value="org.palczewski.InterestCalculator" />
           </set>
