@@ -23,7 +23,7 @@ public class APY {
         double res = (StrictMath.pow(form, months) - 1);
 
         System.out.println("\t=== APY ===");
-        System.out.printf("Total interest paid: $%,.2f%nInterest rate: %.2f%%%nYearly interest: $%,.2f%n=  average monthly interest of: $%,.2f%n",
+        System.out.printf("Total interest earned: $%,.2f%nInterest rate: %.2f%%%nAnnual interest: $%,.2f%n=  average monthly interest of: $%,.2f%n",
                 totalInt,
                 intRate,
                 (totalInt / period), (totalInt /
@@ -52,6 +52,7 @@ public class APY {
         double month = term * 12;
         double newBal = 0;
         double totalInt = 0;
+        System.out.println("\t=== Monthly Details ===");
 
         for(int i = 0; i < month; i++) {
             double moInt = bal * moRate;
