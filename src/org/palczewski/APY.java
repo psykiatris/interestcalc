@@ -5,9 +5,15 @@ import java.util.Scanner;
 
 public class APY {
 
-
-    APY(double totalInt, double intRate,
-        double period) {
+    /**
+     * Calculates Annual Percentage yiedl 9the true interest rate)
+     *
+     * @param totalInt Total of interest earned
+     * @param intRate Annual Percentage Rate
+     * @param period Number of months
+     */
+    private APY(double totalInt, double intRate,
+                double period) {
         double apr = intRate / 100;
         // first part of formula
         double months = period * 12;
@@ -16,11 +22,8 @@ public class APY {
         // The rest of the formula
         double res = (StrictMath.pow(form, months) - 1);
 
-        System.out.println("\t===APY===");
-        System.out.printf("Total interest paid: $%,.2f%nInterest rate: %" +
-                        ".2f%%%nYearly interest: $%,.2f%n=  average " +
-                        "monthly " +
-                        "interest of: $%,.2f%n",
+        System.out.println("\t=== APY ===");
+        System.out.printf("Total interest paid: $%,.2f%nInterest rate: %.2f%%%nYearly interest: $%,.2f%n=  average monthly interest of: $%,.2f%n",
                 totalInt,
                 intRate,
                 (totalInt / period), (totalInt /
@@ -29,6 +32,16 @@ public class APY {
 
     }
 
+    /**
+     * Provides a table of the increast in balance and interest per monnth
+     *
+     * @param startBal Beginning balance
+     * @param rate Annual Percentage Rate
+     * @param date Date of period
+     * @param invBal Amount of monthly invenstment
+     * @param term Term in years
+     * @return totalInt = Value of tatal interest earned
+     */
     private static double growthTable(double startBal, double rate,
                                  LocalDate date
             , double invBal, double term) {
@@ -49,7 +62,7 @@ public class APY {
             bal = newBal + invBal;
             localDate = localDate.plusMonths(1);
         }
-        System.out.println("\t===Results===");
+        System.out.println("\t=== Results ===");
         System.out.printf("After %.0f months, with an initial balance of %n$%,.2f and a monthly deposit of $%,.2f,%n your final balance would be $%,.2f%n", month, startBal, invBal
                 , newBal);
         return totalInt;
