@@ -40,7 +40,7 @@ public class APY {
      * @param date Date of period
      * @param invBal Amount of monthly invenstment
      * @param term Term in years
-     * @return totalInt = Value of tatal interest earned
+     * @return totalInt Value of tatal interest earned
      */
     private static double growthTable(double startBal, double rate,
                                  LocalDate date

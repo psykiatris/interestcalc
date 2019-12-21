@@ -5,7 +5,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.time.LocalDate;
 
-/*
+/**
 Defines an account type with similar fields.
  */
 public class BaseAccount {
@@ -14,8 +14,15 @@ public class BaseAccount {
     private final double apr;
     private static double period = 0.0;
     private final LocalDate date;
-    
-    BaseAccount(double balance, double apr, @NotNull LocalDate date) {
+
+    /**
+     * Creates base account object for use with other classes.
+     *
+     * @param balance Amount being calculated
+     * @param apr Annual Interest Rate (APR)
+     * @param date Start date of cycle period
+     */
+    private BaseAccount(double balance, double apr, @NotNull LocalDate date) {
         this.balance = balance;
         this.apr = apr;
         this.date = date;
@@ -23,26 +30,47 @@ public class BaseAccount {
 
     }
 
+    /**
+     *
+     * @return Value of balance
+     */
     @Contract(pure = true)
     public final double getBalance() {
         return balance;
     }
 
+    /**
+     *
+     * @return Value of apr
+     */
     @Contract(pure = true)
     public final double getApr() {
         return apr;
     }
 
+    /**
+     *
+     * @return Value of period (in months)
+     */
     @Contract(pure = true)
     public final double getPeriod() {
         return period;
     }
 
+    /**
+     *
+     * @return Value of cycle start date
+     */
     @Contract(pure = true)
     public final LocalDate getDate() {
         return date;
     }
 
+    /**
+     *
+     * @param date Start date of cycle
+     * @return Length of cycle's period
+     */
     @Contract(pure = true)
     private int daysInPeriod(@NotNull LocalDate date) {
         // Gets days in period
