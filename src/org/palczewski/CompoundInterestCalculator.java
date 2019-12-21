@@ -1,11 +1,9 @@
 package org.palczewski;
 
-import java.nio.charset.StandardCharsets;
-import java.time.Period;
 import java.time.YearMonth;
-import java.util.Scanner;
 
-/*
+
+/**
 For now, this class will calculate and disply interest gained in a
 particular month.
  */
@@ -18,6 +16,13 @@ public class CompoundInterestCalculator {
     private static double dailyInterrest;
     private double balance;
 
+    /**
+     *
+     * @param balance Balance being calculated
+     * @param intRate Annual Percentage Rate (APR)
+     * @param year Year of cycle period
+     * @param month Month of cycle period
+     */
     CompoundInterestCalculator(double balance, double intRate, int year,
                                int month) {
         // Display information
@@ -33,6 +38,13 @@ public class CompoundInterestCalculator {
 
     }
 
+    /**
+     * Calculates daily interest for computing values
+     *
+     * @param balance Daily balance
+     * @param intRate Annual Percentage Rate
+     * @return Value of daily interest in dollars
+     */
     private static double getDailyInt(double balance, double intRate) {
 
         double resInt = intRate / 100;
@@ -41,6 +53,14 @@ public class CompoundInterestCalculator {
 
     }
 
+
+    /**
+     * Calculates days in cycle period
+     *
+     * @param year Year of cycle period
+     * @param month Month of cycle period
+     * @return Value of days in cycle
+     */
     private int getDays(int year, int month) {
         YearMonth ym = YearMonth.of(year, month);
         return ym.lengthOfMonth();
