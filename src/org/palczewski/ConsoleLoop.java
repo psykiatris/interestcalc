@@ -1,16 +1,14 @@
 package org.palczewski;
 
 import java.time.LocalDate;
-import java.time.MonthDay;
 import java.time.Period;
-import java.time.YearMonth;
 import java.time.temporal.ChronoUnit;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 public class ConsoleLoop {
-    private final Map<String, Double> dailyBalance = new HashMap<>(30);
+    private final Map<String, Double> dailyBalance = new HashMap<>(1);
 
     public static void main(String[] args) {
         /*
@@ -19,7 +17,7 @@ public class ConsoleLoop {
          */
         // try block
         try (Scanner in = new Scanner(System.in)) {
-            System.out.println("\tGet daily balances for month.");
+            System.out.println("\t=== Daily Balances entry ===");
             System.out.println("Enter each day's balance for the billing period:");
             System.out.println();
             System.out.print("Enter begin date: ");
