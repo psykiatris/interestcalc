@@ -70,6 +70,9 @@ public class InterestCalculator {
 
     }
 
+    /**
+     * Displays table of daily balances
+     */
     private void displayTable() {
         // iterate map showing entries
         System.out.println();
@@ -86,16 +89,27 @@ public class InterestCalculator {
     }
 
 
-        
-        private double getDailyRate(double apr) {
+    /**
+     * Returns caluclated daily interest
+     *
+     * @param apr Annual Percentage Rate
+     * @return daily interest
+     */
+    private double getDailyRate(double apr) {
         // First convert apr to decimal
             double res = apr / 100;
             // Divide res by days of year to 
             // get Daily Rate
             return res / 365;
         }
-        
-        private double getAvgBal(Map<LocalDate, Double> dailyBalance) {
+
+    /**
+     * Gets average balance for cycle
+     *
+     * @param dailyBalance Sum of daily balances
+     * @return Average balance for cycle period
+     */
+    private double getAvgBal(Map<LocalDate, Double> dailyBalance) {
         // Iterate map to sum values
             double sum = 0;
 
@@ -106,6 +120,12 @@ public class InterestCalculator {
             return sum / cycle;
         }
 
+    /**
+     * Computes interest on average balance
+     * @param apr Annual Percentage Rate
+     * @param avgBal Average daily balance
+     * @return Interest
+     */
         private double computeInterest(double apr, double avgBal) {
         double dailyRate = getDailyRate(apr);
         return (avgBal * dailyRate) * cycle;
