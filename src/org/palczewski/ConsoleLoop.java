@@ -47,7 +47,7 @@ public class ConsoleLoop {
                 sum += in.nextDouble();
                 beginDate = beginDate.plus(1, ChronoUnit.DAYS);
             }
-            double avgBal = sum / 30;
+            double avgBal = sum / cycle;
             double intRate = apr / 100;
             double dailyRate = intRate / 365;
             System.out.printf("Average balance: %.2f%n", avgBal);
