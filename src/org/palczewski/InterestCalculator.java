@@ -5,7 +5,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.*;
 
 /*
-Consolicate ConsoleLoop and CompundInterest classes into one for
+Consolidate ConsoleLoop and CompundInterest classes into one for
 simplicity.
 
 This will be the main function to be called from Main, passing the
@@ -15,13 +15,22 @@ public class InterestCalculator {
 
     // Map to store date and daily balance.
     private final Map<LocalDate, Double> dailyBalance =
-            new LinkedHashMap<>(31);
+            new LinkedHashMap<>(1);
     private final LocalDate startDate;
     private final LocalDate endDate;
     private final int cycle;
     private final double apr;
     private final Scanner in;
 
+    /**
+     * Computes interest
+     *
+     * @param in Scanner object
+     * @param startDate Begommomg date pf [eropd
+     * @param endDate Ending date pf cuc;e
+     * @param cycle Cycle period
+     * @param apr Annual Percentage Rate
+     */
     InterestCalculator(Scanner in, LocalDate startDate,
                        LocalDate endDate,int cycle,
                        double apr) {

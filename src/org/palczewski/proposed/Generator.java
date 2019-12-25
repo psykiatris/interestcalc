@@ -1,4 +1,4 @@
-package org.palczewski;
+package org.palczewski.proposed;
 
 /*
 This class will combine the main functions. The grow() method will
