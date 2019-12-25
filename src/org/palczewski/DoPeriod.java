@@ -7,6 +7,9 @@ import java.util.Scanner;
 
 public class DoPeriod {
 
+    /**
+     * Calculates dates based on a period of days (e.g. 30)
+     */
     DoPeriod() {
         try(Scanner in = new Scanner(System.in, StandardCharsets.UTF_8)) {
             LocalDate startDate;
@@ -22,6 +25,7 @@ public class DoPeriod {
         }
     }
 
+    // Self-test
     public static void main(String[] args) {
         new DoPeriod();
     }
