@@ -51,9 +51,9 @@ public class InterestCalculator {
         }
         System.out.println();
         double avgBalance = getAvgBal(dailyBalance);
-        System.out.printf("Average balance: $%,10.2f%n",
+        System.out.printf("Average balance: $%,.2f%n",
                 avgBalance);
-        System.out.printf("Interest earned/charged: $%,4.2f%n",
+        System.out.printf("Interest earned/charged: $%,.2f%n",
                 computeInterest(apr, avgBalance));
         System.out.println();
         // Choice to display table

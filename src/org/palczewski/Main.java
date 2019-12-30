@@ -68,7 +68,12 @@ public class Main {
                         // Get more info from user
                         System.out.print("Enter statement start date: ");
                         startDate = LocalDate.parse(in.next());
-                        cycle = startDate.lengthOfMonth();
+                        /*
+                        For credit cards, the end of the statement
+                        period determines the days in cycle (e.g. Begin
+                        date in November, cycle based on days in December.
+                         */
+                        cycle = startDate.plusMonths(1).lengthOfMonth();
                         LocalDate endDate = startDate.plus(cycle - 1,
                                 ChronoUnit.DAYS);
                         System.out.printf("Cycle period: %1$tm-%1$td-%1$tY " +
