@@ -3,10 +3,14 @@ package org.palczewski;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+/**
+ * Generates the Annual Percentage Yield (the true interest) on the
+ * passed in data
+ */
 public class APY {
 
     /**
-     * Calculates Annual Percentage yiedl 9the true interest rate)
+     * Calculates Annual Percentage yield (the true interest rate)
      *
      * @param totalInt Total of interest earned
      * @param intRate Annual Percentage Rate
@@ -69,6 +73,11 @@ public class APY {
         return totalInt;
     }
 
+    /**
+     * Can be used as a stand-alone app with no parameters as it asks
+     * user to provide info
+     * @param args List of arguments
+     */
     public static void main(String[] args) {
         try(Scanner in = new Scanner(System.in)) {
             // Get figures

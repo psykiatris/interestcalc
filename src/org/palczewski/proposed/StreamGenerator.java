@@ -29,7 +29,10 @@ public class StreamGenerator {
 
     }
 
-    // Self-test method
+    /**
+     * Self-test
+     * @param args List of arguments
+     */
     public static void main(String[] args) {
         // Using today's date
         LocalDate date = LocalDate.now();

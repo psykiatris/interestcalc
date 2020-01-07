@@ -6,7 +6,7 @@ import org.jetbrains.annotations.NotNull;
 import java.time.LocalDate;
 
 /**
-Defines an account type with similar fields.
+Creates an account type with similar fields
  */
 public class BaseAccount {
 
@@ -31,7 +31,7 @@ public class BaseAccount {
     }
 
     /**
-     *
+     * Returns balance
      * @return Value of balance
      */
     @Contract(pure = true)
@@ -40,7 +40,7 @@ public class BaseAccount {
     }
 
     /**
-     *
+     * Returns APR (Annual Percentage Rate)
      * @return Value of apr
      */
     @Contract(pure = true)
@@ -49,7 +49,7 @@ public class BaseAccount {
     }
 
     /**
-     *
+     * Retruns period
      * @return Value of period (in months)
      */
     @Contract(pure = true)
@@ -58,7 +58,7 @@ public class BaseAccount {
     }
 
     /**
-     *
+     * Returns beginning date of cycle
      * @return Value of cycle start date
      */
     @Contract(pure = true)
@@ -67,7 +67,7 @@ public class BaseAccount {
     }
 
     /**
-     *
+     * Returns number of days in cycle period (28. 29, 30 or 31)
      * @param date Start date of cycle
      * @return Length of cycle's period
      */

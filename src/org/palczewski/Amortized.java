@@ -6,13 +6,13 @@ import java.util.Scanner;
 
 
 /**
-Caclulates amoritzed payments for loans, mortgages, etc.
+Calculates amoritzed payments for loans, mortgages
  @author patrick palczewski
  */
 public class Amortized {
 
     /**
-     *
+     * Creates an object of princial rate and period
      * @param p Principal balance
      * @param rate Annual Percentage Rate
      * @param periods Months in period
@@ -37,7 +37,7 @@ public class Amortized {
     }
 
     /**
-     *
+     * Displays amortization schedule in a readable table
      * @param prin principal balance
      * @param rate interest rate
      * @param startDate start date of period
@@ -68,7 +68,10 @@ public class Amortized {
         }
     }
 
-    // Stand-alone app
+    /**
+     *  Can be used as a stand-alone app
+     * @param args Argument list
+     */
     public static void main(String[] args) {
         try (Scanner in = new Scanner(System.in, StandardCharsets.UTF_8)) {
             System.out.println("Calculated payments on mortgage");
