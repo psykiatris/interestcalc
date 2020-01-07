@@ -42,7 +42,7 @@ public class Amortized {
      * @param rate interest rate
      * @param startDate start date of period
      * @param years term in years
-     * @param pmt calculated p & i payment
+     * @param pmt calculated principal and interest payment
      */
     private void amortizationSchedule(double prin, double rate,
                                       LocalDate startDate, double years,

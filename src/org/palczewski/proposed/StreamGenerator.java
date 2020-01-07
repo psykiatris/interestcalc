@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/**
+ * Generates streams from passed in data
+ */
 public class StreamGenerator {
 
     /**
