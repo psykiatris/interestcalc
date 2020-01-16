@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class APY {
 
     /**
-     * Calculates Annual Percentage yield (the true interest rate)
+     * Calculates Annual Percentage Yield (the true APR rate)
      *
      * @param totalInt Total of interest earned
      * @param intRate Annual Percentage Rate
@@ -37,7 +37,8 @@ public class APY {
     }
 
     /**
-     * Provides a table of the increast in balance and interest per monnth
+     * Returns a table of the balance including the interest for the
+     * given period
      *
      * @param startBal Beginning balance
      * @param rate Annual Percentage Rate
@@ -74,9 +75,9 @@ public class APY {
     }
 
     /**
-     * Can be used as a stand-alone app with no parameters as it asks
-     * user to provide info
-     * @param args List of arguments
+     * Use as stand-alone applicaton, will prompt user for details to
+     * pass to class constructor
+     * @param args Empty argument list
      */
     public static void main(String[] args) {
         try(Scanner in = new Scanner(System.in)) {
