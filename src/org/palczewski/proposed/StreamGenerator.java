@@ -17,12 +17,10 @@ public class StreamGenerator {
      * @return A List of dates
      */
     private static Stream<LocalDate> generateCycleDays(LocalDate date) {
-        LocalDate local = date;
-        List<LocalDate> daysList = new ArrayList<>(local.lengthOfMonth());
-        int cycle = local.lengthOfMonth();
-        for(int i = 0; i < cycle; i++) {
-            daysList.add(local);
-            local = local.plusDays(1);
+        List<LocalDate> daysList = new ArrayList<>(date.lengthOfMonth());
+
+        for(int i = 0; i < date.lengthOfMonth(); i++) {
+            daysList.add(date);
         }
 
         return daysList.stream();
