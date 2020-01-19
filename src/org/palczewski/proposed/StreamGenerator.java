@@ -20,7 +20,7 @@ public class StreamGenerator {
         List<LocalDate> daysList = new ArrayList<>(date.lengthOfMonth());
 
         for(int i = 0; i < date.lengthOfMonth(); i++) {
-            daysList.add(date);
+            daysList.add(date.plusDays(i));
         }
 
         return daysList.stream();
