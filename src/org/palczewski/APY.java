@@ -37,7 +37,9 @@ public class APY {
     }
 
     /**
-     * Returns a table of the balance including the interest for the
+     * Returns total interest for period. Creates a table of the balance
+     * including
+     * the interest for the
      * given period
      *
      * @param startBal Beginning balance

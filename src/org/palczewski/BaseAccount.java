@@ -68,6 +68,7 @@ public class BaseAccount {
 
     /**
      * Returns number of days in cycle period (28. 29, 30 or 31)
+     * depending on month cycle ends in
      * @param date Start date of cycle
      * @return Length of cycle's period
      */
