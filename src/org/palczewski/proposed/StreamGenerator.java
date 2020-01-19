@@ -2,6 +2,7 @@ package org.palczewski.proposed;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -23,6 +24,8 @@ public class StreamGenerator {
             daysList.add(date.plusDays(i));
         }
 
+
+
         return daysList.stream();
 
     }
@@ -40,8 +43,8 @@ public class StreamGenerator {
                 generateCycleDays(date)
                         .collect(Collectors.toList());
 
-        // Print results of returned stream
-        System.out.println(res);
+        // Displays list
+        for (LocalDate localDate : res) System.out.println(localDate);
         System.out.printf("First day of cycle: %s%n", res.get(0));
         System.out.printf("15th day of cycle: %s%n", res.get(14));
 
