@@ -1,9 +1,7 @@
 package org.palczewski.proposed;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -43,6 +41,10 @@ public class StreamGenerator {
                 generateCycleDays(date)
                         .collect(Collectors.toList());
 
+        Map<LocalDate, Double> resMap = new LinkedHashMap<>(31);
+        for(LocalDate i : res)
+            resMap.put(i, (double) 800);
+
         // Displays list
         for (LocalDate localDate : res) System.out.println(localDate);
         System.out.printf("First day of cycle: %s%n", res.get(0));
@@ -52,6 +54,13 @@ public class StreamGenerator {
         // should match days of cycle.
         System.out.println(String.format("Cycle is: %d days",
                 res.size()));
+
+        // Print map entries
+        System.out.println();
+        System.out.println("Printing map entries:");
+        for(Map.Entry<LocalDate, Double> m : resMap.entrySet())
+            System.out.printf("Key: %s Value: $%,.2f%n", m.getKey(),
+                    m.getValue());
 
 
 
