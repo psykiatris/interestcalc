@@ -6,13 +6,14 @@ import java.util.Scanner;
 
 
 /**
-Calculates amoritzed payments for loans, mortgages
- @author patrick palczewski
+Calculates amoritzed payments for loans, mortgages and credit cards
+ @author Patrick Palczewski (psykiatris@gmail.com)
+ @version .99
  */
 public class Amortized {
 
     /**
-     * Creates an object of princial rate and period
+     * Creates an object of princi]al, rate &amp; period
      * @param p Principal balance
      * @param rate Annual Percentage Rate
      * @param periods Months in period

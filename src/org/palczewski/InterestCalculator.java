@@ -11,6 +11,11 @@ simplicity.
 This will be the main function to be called from Main, passing the
 parameters. Will add other methods as needed
  */
+
+/**
+ * Calculates interest.
+ * @author Patrick Palczewski
+ */
 public class InterestCalculator {
 
     // Map to store date and daily balance.
@@ -26,9 +31,9 @@ public class InterestCalculator {
      * Computes interest
      *
      * @param in Scanner object
-     * @param startDate Begommomg date pf [eropd
+     * @param startDate Beginning date pf period
      * @param endDate Ending date pf cuc;e
-     * @param cycle Cycle period
+     * @param cycle Days of period
      * @param apr Annual Percentage Rate
      */
     InterestCalculator(Scanner in, LocalDate startDate,
