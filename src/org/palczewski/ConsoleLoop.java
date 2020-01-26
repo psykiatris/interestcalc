@@ -1,14 +1,13 @@
 package org.palczewski;
 
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.temporal.ChronoUnit;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class ConsoleLoop {
-    private final Map<String, Double> dailyBalance = new HashMap<>(1);
+
 
     public static void main(String[] args) {
         /*
@@ -16,7 +15,7 @@ public class ConsoleLoop {
         returning an avg.
          */
         // try block
-        try (Scanner in = new Scanner(System.in)) {
+        try (Scanner in = new Scanner(System.in, StandardCharsets.UTF_8)) {
             System.out.println("\t=== Daily Balances entry ===");
             System.out.println("Enter each day's balance for the billing period:");
             System.out.println();
@@ -31,6 +30,7 @@ public class ConsoleLoop {
 
             System.out.printf("Period is from: %s to %s%n",
                     beginDate, (endDate.minus(1, ChronoUnit.DAYS)));
+            // TODO: 1/26/20 Change code to not use Period, simplify this like APY or Amortized classes.
             Period cyclePeriod = Period.between(beginDate, endDate);
             System.out.printf("Days in cycle: %s%n",
                     cyclePeriod.getDays());

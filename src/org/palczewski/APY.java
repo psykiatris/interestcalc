@@ -6,6 +6,8 @@ import java.util.Scanner;
 /**
  * Generates the Annual Percentage Yield (the true interest) on the
  * passed in data
+ * @author Patrick Palczewski - psykiatris@gmail.com
+ *  @version .99
  */
 public class APY {
 

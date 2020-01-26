@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 /**
 Calculates amoritzed payments for loans, mortgages and credit cards
- @author Patrick Palczewski (psykiatris@gmail.com)
+ @author Patrick Palczewski - psykiatris@gmail.com
  @version .99
  */
 public class Amortized {

@@ -4,8 +4,10 @@ import java.time.YearMonth;
 
 
 /**
-For now, this class will calculate and disply interest gained in a
-particular month.
+Calculate and disply interest gained in a
+particular month. (Will be deprecated in a future release)
+ @author Patrick Palczewski - psykiatris@gmail.com
+ @version .99
  */
 public class CompoundInterestCalculator {
 
@@ -17,7 +19,7 @@ public class CompoundInterestCalculator {
     private double balance;
 
     /**
-     *
+     * Consructor
      * @param balance Balance being calculated
      * @param intRate Annual Percentage Rate (APR)
      * @param year Year of cycle period
@@ -39,7 +41,7 @@ public class CompoundInterestCalculator {
     }
 
     /**
-     * Calculates daily interest for computing values
+     * Returns calculated daily interest for each day in cycle
      *
      * @param balance Daily balance
      * @param intRate Annual Percentage Rate
@@ -62,6 +64,7 @@ public class CompoundInterestCalculator {
      * @return Value of days in cycle
      */
     private int getDays(int year, int month) {
+        // TODO: 1/26/20 Should rewrite as this complicates function.
         YearMonth ym = YearMonth.of(year, month);
         return ym.lengthOfMonth();
     }

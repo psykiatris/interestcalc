@@ -14,7 +14,8 @@ parameters. Will add other methods as needed
 
 /**
  * Calculates interest.
- * @author Patrick Palczewski
+ * @author Patrick Palczewski - psykiatris@gmail.com
+ * @version .99
  */
 public class InterestCalculator {
 

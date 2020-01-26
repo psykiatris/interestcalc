@@ -7,6 +7,8 @@ import java.util.stream.Stream;
 
 /**
  * Generates streams from passed in data
+ * @author Patrick Palczewski - psykiatris@gmail.com
+ * @version .99
  */
 public class StreamGenerator {
 

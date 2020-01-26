@@ -6,7 +6,9 @@ import org.jetbrains.annotations.NotNull;
 import java.time.LocalDate;
 
 /**
-Creates an account type with similar fields
+Creates a base account with balance, apr and period (term in months)
+ @author Patrick Palczewski - psykiatris@gmail.com
+ @version .99
  */
 public class BaseAccount {
 
