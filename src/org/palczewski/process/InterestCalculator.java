@@ -37,9 +37,9 @@ public class InterestCalculator {
      * @param cycle Days of period
      * @param apr Annual Percentage Rate
      */
-    InterestCalculator(Scanner in, LocalDate startDate,
-                       LocalDate endDate,int cycle,
-                       double apr) {
+    public InterestCalculator(Scanner in, LocalDate startDate,
+                              LocalDate endDate, int cycle,
+                              double apr) {
 
         this.in = in;
         this.startDate = startDate;
