@@ -1,5 +1,7 @@
 package org.palczewski;
 
+import org.palczewski.process.InterestCalculator;
+
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.time.YearMonth;

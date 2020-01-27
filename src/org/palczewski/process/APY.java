@@ -1,4 +1,4 @@
-package org.palczewski;
+package org.palczewski.process;
 
 import java.time.LocalDate;
 import java.util.Scanner;

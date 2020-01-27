@@ -1,4 +1,4 @@
-package org.palczewski;
+package org.palczewski.process;
 
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;

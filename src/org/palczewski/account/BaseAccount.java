@@ -1,4 +1,4 @@
-package org.palczewski;
+package org.palczewski.account;
 
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
