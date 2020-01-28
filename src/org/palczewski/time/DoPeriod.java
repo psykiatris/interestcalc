@@ -30,10 +30,8 @@ public class DoPeriod {
         LocalDate endDate = start.plus(cycle,
                 ChronoUnit.DAYS);
         System.out.printf("Period is from %1$tm-%1$td-%1$tY to %2$tm-%2$td-%2$tY%n",
-                start, endDate);
+                start, (endDate.minusDays(1)));
         System.out.printf("Period is %s days.%n", cycle);
-
-
 
     }
 
@@ -45,8 +43,12 @@ public class DoPeriod {
     private void weeksInPeriod(LocalDate start, int cycle) {
         LocalDate endDate = start.plus(cycle,
                 ChronoUnit.DAYS);
-        System.out.printf("Period is from %1$tm-%1$td-%1$tY to %2$tm-%2$td-%2$tY%n",
+        /*
+        System.out.printf("Period is from %1$tm-%1$td-%1$tY to " +
+                        "%2$tm-%2$td-%2$tY%n",
                 start, endDate);
+
+         */
         System.out.printf("Period is %s weeks.%n", cycle / 7);
 
     }
@@ -75,18 +77,8 @@ public class DoPeriod {
     // Self-test
     public static void main(String[] args) {
         try(Scanner in = new Scanner(System.in, StandardCharsets.UTF_8)) {
-            System.out.print("Enter date: ");
-            LocalDate start = LocalDate.parse(in.next());
-            System.out.print("Number of weeks: ");
-            int weeks = in.nextInt();
 
-            LocalDate end = start.plusWeeks(weeks);
-            System.out.printf("Dates from: %s to %s,%n for a total of %s" +
-                            " weeks.%n",
-                    start,
-                    end,
-                    weeks);
-
+            new DoPeriod().collect();
         }
     }
 }
