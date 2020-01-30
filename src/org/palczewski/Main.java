@@ -20,11 +20,11 @@ public class Main {
 
         try (Scanner in = new Scanner(System.in, StandardCharsets.UTF_8)) {
 
-            System.out.println("\tBoyd Financial Calculator");
+            System.out.println("\t=== Financial Calculator ===");
             System.out.printf("Calculates interest earned or charged%non a bank savings or credit card account.%n");
             System.out.printf("\tEnter an option:%n\t%2d - %-11s%n\t%2d " +
                     "- %-11s%n\t%2d - %-11s%n\t%2d - %-11s%n", 1, "Savings", 2,
-                    "Credit Card", 3, "Find Cycle", 9, "Quit");
+                    "Credit Card", 3, "Find Period", 9, "Quit");
 
             int choice = 0;
             // Params to pass to function
@@ -113,7 +113,7 @@ public class Main {
 
             // Finsihing up.
             System.out.println();
-            System.out.println("Thank you for using Boyd Financial Calculator!");
+            System.out.println("Thank you for using our Financial Calculator!");
 
         }
 

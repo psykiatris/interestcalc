@@ -3312,6 +3312,7 @@
             <option value="org.palczewski.Amortized" />
             <option value="org.palczewski.CompoundInterestCalculator" />
             <option value="org.palczewski.InterestCalculator" />
+            <option value="org.palczewski.process.InterestCalculator" />
           </set>
         </option>
       </scope>

@@ -56,7 +56,7 @@ public class DoPeriod {
     /**
      * Collects info from user
      */
-    public final void collect() {
+    private void collect() {
         LocalDate start;
         LocalDate end;
         try(Scanner in = new Scanner(System.in, StandardCharsets.UTF_8)) {
