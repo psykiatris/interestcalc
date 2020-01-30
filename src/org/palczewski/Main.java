@@ -24,7 +24,7 @@ public class Main {
             System.out.printf("Calculates interest earned or charged%non a bank savings or credit card account.%n");
             System.out.printf("\tEnter an option:%n\t%2d - %-11s%n\t%2d " +
                     "- %-11s%n\t%2d - %-11s%n\t%2d - %-11s%n", 1, "Savings", 2,
-                    "Credit Card", 3, "Find Period", 9, "Quit");
+                    "Credit Card", 3, "Find Cycle", 9, "Quit");
 
             int choice = 0;
             // Params to pass to function
@@ -93,7 +93,13 @@ public class Main {
                     case 3: {
                         System.out.print("Enter start date: ");
                         startDate = LocalDate.parse(in.next());
-                        cycle = startDate.lengthOfMonth();
+                        if(startDate.getDayOfMonth() == 1) {
+                            cycle = startDate.lengthOfMonth();
+                        } else {
+                            cycle =
+                                    startDate.plusMonths(1).lengthOfMonth();
+                        }
+
                         LocalDate endDate = startDate.plus(cycle - 1,
                                 ChronoUnit.DAYS);
                         System.out.printf("Cycle: %1$tm-%1$td-%1$tY " +
