@@ -17,17 +17,17 @@ import org.jetbrains.annotations.Contract;
  */
 public class Generator {
 
-    @Contract(pure = true)
     /**
      * Cannot be instantiated
      */
+    @Contract(pure = true)
     private Generator() {}
 
     /**
      * Adds interest to balances (i.e. add interest to a
      * savings account or CD)
      */
-    public void grow() {
+    public void earnInterest() {
 
     }
 
@@ -35,7 +35,7 @@ public class Generator {
     /**
      * Decreases balances such as principal and interest payments.
      */
-    public void shrink() {
+    public void chargeInterest() {
 
 
     }

@@ -37,6 +37,11 @@ public class Amortized {
 
     }
 
+    /**
+     * Converts years to months
+     * @param period Number of years
+     * @return Number of months
+     */
     private double toMonths(double period) {
         return period / 12;
     }

@@ -17,7 +17,7 @@ public class StreamGenerator {
      * @param date The beginning date
      * @return A List of dates
      */
-    private static Stream<LocalDate> generateCycleDays(LocalDate date) {
+    private static Stream<LocalDate> cycleDaysToStream(LocalDate date) {
         List<LocalDate> daysList = new ArrayList<>(date.lengthOfMonth());
 
         for(int i = 0; i < date.lengthOfMonth(); i++) {
@@ -40,7 +40,7 @@ public class StreamGenerator {
 
         // Create list from Stream
         List<LocalDate> res =
-                generateCycleDays(date)
+                cycleDaysToStream(date)
                         .collect(Collectors.toList());
 
         Map<LocalDate, Double> resMap = new LinkedHashMap<>(31);
