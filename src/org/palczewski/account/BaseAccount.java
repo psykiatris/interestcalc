@@ -28,7 +28,7 @@ public class BaseAccount {
         this.balance = balance;
         this.apr = apr;
         this.date = date;
-        period = daysInPeriod(date);
+        period = toDaysInPeriod(date);
 
     }
 
@@ -75,7 +75,7 @@ public class BaseAccount {
      * @return Length of cycle's period
      */
     @Contract(pure = true)
-    private int daysInPeriod(@NotNull LocalDate date) {
+    private int toDaysInPeriod(@NotNull LocalDate date) {
         // Gets days in period
         return date.lengthOfMonth();
     }

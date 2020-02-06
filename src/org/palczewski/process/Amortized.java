@@ -27,14 +27,18 @@ public class Amortized {
         double payment =
                 p * (moInt / (1 - (StrictMath.pow(1/(1 + moInt), periods))));
         // print table
-        amortizationSchedule(p, rate, LocalDate.now(),
+        viewAmortizationSchedule(p, rate, LocalDate.now(),
 
-                periods / 12, payment);
+                toMonths(periods), payment);
         System.out.println("\t=== Payment Summary ===");
-        System.out.printf("Based on principal of $%,.2f for %.0f months,%nat %.3f%%, your payments would be $%,.2f%n",
+        System.out.printf("Based on principal of $%,.2f for %.0f months,%nat %.3f%%, your montly payments would be %n$%,.2f.%n",
                 p, periods, rate, payment);
 
 
+    }
+
+    private double toMonths(double period) {
+        return period / 12;
     }
 
     /**
@@ -45,7 +49,7 @@ public class Amortized {
      * @param years term in years
      * @param pmt calculated principal and interest payment
      */
-    private void amortizationSchedule(double prin, double rate,
+    private void viewAmortizationSchedule(double prin, double rate,
                                       LocalDate startDate, double years,
                                       double pmt) {
         // Change interest to decimal format
@@ -76,7 +80,7 @@ public class Amortized {
     public static void main(String[] args) {
         try (Scanner in = new Scanner(System.in, StandardCharsets.UTF_8)) {
             System.out.println("Calculated payments on mortgage");
-            System.out.print("Enter principal amt: ");
+            System.out.print("Enter principal amount: ");
             double prin = in.nextDouble();
             System.out.print("Enter interest rate: ");
             double rate = in.nextDouble();
