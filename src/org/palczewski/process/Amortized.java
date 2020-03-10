@@ -12,6 +12,8 @@ Calculates amoritzed payments for loans, mortgages and credit cards
  */
 public class Amortized {
 
+    private double accumInt = 0;
+
     /**
      * Creates an object of princi]al, rate &amp; period
      * @param p Principal balance
@@ -31,8 +33,10 @@ public class Amortized {
 
                 toMonths(periods), payment);
         System.out.println("\t=== Payment Summary ===");
-        System.out.printf("Based on principal of $%,.2f for %.0f months,%nat %.3f%%, your montly payments would be %n$%,.2f.%n",
+        System.out.printf("Based on principal of $%,.2f for %.0f months,%nat %.3f%%, your montly payments would be  $%,.2f.%n",
                 p, periods, rate, payment);
+        System.out.printf("Interest paid for this period: $%,.2f%n",
+                accumInt);
 
 
     }
@@ -68,6 +72,7 @@ public class Amortized {
         for(int i = 0; i < period; i++) {
             double moInterest = v * moRate;
             double newPrin = pmt - moInterest;
+            accumInt += moInterest;
             double newBal = v - newPrin;
             System.out.printf("%1$tb %tY Bal: $%,.2f P: $%,.2f I: $%," +
                             ".2f%n",
