@@ -23,11 +23,12 @@ public class Amortized {
      */
     private Amortized(double p, double rate, double periods) {
 
-        double moInt = rate / (12 * 100);
+        double moInt;
+        moInt = (rate == 0) ? 0.0 : (rate / (12 * 100));
+        double payment;
 
-        // Formula to calculate payment
-        double payment =
-                p * (moInt / (1 - (StrictMath.pow(1/(1 + moInt), periods))));
+        payment = (moInt == 0) ? (p / periods) : (p * (moInt / (1 - (StrictMath.pow(1 / (1 + moInt), periods)))));
+
         // print table
         viewAmortizationSchedule(p, rate, LocalDate.now(),
 
