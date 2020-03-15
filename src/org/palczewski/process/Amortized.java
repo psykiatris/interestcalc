@@ -34,8 +34,9 @@ public class Amortized {
 
                 toMonths(periods), payment);
         System.out.println("\t=== Payment Summary ===");
-        System.out.printf("Based on principal of $%,.2f for %.0f months,%nat %.3f%%, your montly payments would be  $%,.2f.%n",
-                p, periods, rate, payment);
+        String text = (periods <= 1) ? APY.MONTH : APY.MONTHS;
+        System.out.printf("Based on principal of $%,.2f for %.0f %s,%nat %.3f%%, your montly payments would be  $%,.2f.%n",
+                p, periods, text, rate, payment);
         System.out.printf("Interest paid for this period: $%,.2f%n",
                 accumInt);
 

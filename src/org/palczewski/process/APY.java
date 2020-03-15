@@ -11,6 +11,9 @@ import java.util.Scanner;
  */
 public class APY {
 
+    static final String MONTHS = "months";
+    static final String MONTH = "month";
+
     /**
      * Calculates Annual Percentage Yield (the true APR rate)
      *
@@ -73,7 +76,12 @@ public class APY {
             localDate = localDate.plusMonths(1);
         }
         System.out.println("\t=== Results ===");
-        System.out.printf("After %.0f months, with an initial balance of %n$%,.2f and a monthly deposit of $%,.2f,%n your final balance would be $%,.2f%n", month, startBal, invBal
+        String textMo = (month <= 1) ? MONTH : MONTHS;
+        System.out.printf("After %.0f %s, with an initial balance of " +
+                        "%n$%,.2f and a monthly deposit of $%,.2f,%n " +
+                        "your final balance would be $%,.2f%n", month,
+                textMo,
+                startBal, invBal
                 , newBal);
         return totalInt;
     }
