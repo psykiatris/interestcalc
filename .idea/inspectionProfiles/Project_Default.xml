@@ -648,7 +648,7 @@
       <scope name="Production" level="WARNING" enabled="true" />
     </inspection_tool>
     <inspection_tool class="CastThatLosesPrecision" enabled="true" level="WARNING" enabled_by_default="true">
-      <scope name="Production" level="WARNING" enabled="true">
+      <scope name="Production" level="WARNING" enabled="false">
         <option name="ignoreIntegerCharCasts" value="false" />
         <option name="ignoreOverflowingByteCasts" value="false" />
       </scope>
