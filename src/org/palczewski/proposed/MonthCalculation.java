@@ -39,6 +39,8 @@ public class MonthCalculation {
 
         private static LocalDate newDateUsingDays(LocalDate date, int period) {
 
+            System.out.printf("After %s days, new date is: %n", period);
+
         return date.plusDays(period);
 
         }
@@ -57,9 +59,9 @@ public class MonthCalculation {
         public static void main(String[] args) {
 
             System.out.printf("New date: %s%n",
-                    newDateUsingMonths(LocalDate.parse("2020-03-10"), .5));
-            System.out.printf("New date in days: %s%n",
-                    newDateUsingDays(LocalDate.now(), 30));
+                    newDateUsingMonths(LocalDate.parse("2020-03-10"), 30));
+            System.out.printf("%s%n",
+                    newDateUsingDays(LocalDate.now(), 90));
 
         }
 
