@@ -67,23 +67,30 @@ public class MonthCalculation {
 
             Duration period = Duration.between(date,
                     endOfDay);
-            return Math.abs(period.toHours());
+            return period.toHours();
         }
 
-        private static long minutesToEndOfDay(LocalDateTime date) {
+        private static int minutesToEndOfDay(LocalDateTime date) {
+
+            LocalDateTime endOfDay = date.toLocalDate().atTime(23, 59);
 
 
             Duration period = Duration.between(date,
-                    date.toLocalTime().MAX);
+                    endOfDay);
 
-            return Math.abs(period.toMinutes());
+            return (period.toMinutesPart() + 1);
         }
 
 
         //Test
         public static void main(String[] args) {
-            System.out.printf("Time to end of day: %s hours%n",
-                    hoursToEndOfDay(LocalDateTime.now()));
+
+        LocalDateTime date = LocalDateTime.now();
+            System.out.printf("Time now is: %s%n", date);
+
+            System.out.printf("Time to end of day: %s hours %s minutes%n",
+                    hoursToEndOfDay(date),
+                    (minutesToEndOfDay(date)));
 
 
 
