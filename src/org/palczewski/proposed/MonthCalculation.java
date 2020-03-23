@@ -1,7 +1,7 @@
 package org.palczewski.proposed;
 
-import java.time.LocalDate;
-import java.time.Period;
+import java.time.*;
+import java.time.temporal.ChronoUnit;
 
 /**
  * This class will handle month calculations, such as partial months, e
@@ -55,13 +55,39 @@ public class MonthCalculation {
 
         }
 
+        private static LocalDateTime toStartOfDay(LocalDate date) {
+
+        return date.atStartOfDay();
+
+        }
+
+        private static long hoursToEndOfDay(LocalDateTime date) {
+
+        LocalDateTime endOfDay = date.toLocalDate().atTime(23, 59);
+
+            Duration period = Duration.between(date,
+                    endOfDay);
+            return Math.abs(period.toHours());
+        }
+
+        private static long minutesToEndOfDay(LocalDateTime date) {
+
+
+            Duration period = Duration.between(date,
+                    date.toLocalTime().MAX);
+
+            return Math.abs(period.toMinutes());
+        }
+
+
         //Test
         public static void main(String[] args) {
+            System.out.printf("Time to end of day: %s hours%n",
+                    hoursToEndOfDay(LocalDateTime.now()));
 
-            System.out.printf("New date: %s%n",
-                    newDateUsingMonths(LocalDate.parse("2020-03-10"), 30));
-            System.out.printf("%s%n",
-                    newDateUsingDays(LocalDate.now(), 90));
+
+
+
 
         }
 
