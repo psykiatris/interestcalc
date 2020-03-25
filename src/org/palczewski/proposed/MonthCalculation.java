@@ -72,13 +72,13 @@ public class MonthCalculation {
 
         private static int minutesToEndOfDay(LocalDateTime date) {
 
-            LocalDateTime endOfDay = date.toLocalDate().atTime(23, 59);
+            LocalDateTime endOfDay = date.toLocalDate().atTime(23, 59, 59);
 
 
             Duration period = Duration.between(date,
                     endOfDay);
 
-            return (period.toMinutesPart() + 1);
+            return (period.toMinutesPart());
         }
 
 
