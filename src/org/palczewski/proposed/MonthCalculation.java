@@ -4,9 +4,7 @@ import java.time.*;
 import java.time.temporal.ChronoUnit;
 
 /**
- * This class will handle month calculations, such as partial months, e
- * .g. a CD account starting on a day in the middle of the month and
- * ending in the middle of the month.
+ * Provides methods to manage time in hourly, daily and monthly criteria.
  */
 public class MonthCalculation {
 
@@ -63,7 +61,7 @@ public class MonthCalculation {
 
         private static long hoursToEndOfDay(LocalDateTime date) {
 
-        LocalDateTime endOfDay = date.toLocalDate().atTime(23, 59);
+        LocalDateTime endOfDay = date.toLocalDate().atTime(23, 59, 59);
 
             Duration period = Duration.between(date,
                     endOfDay);
@@ -85,7 +83,11 @@ public class MonthCalculation {
         //Test
         public static void main(String[] args) {
 
-        LocalDateTime date = LocalDateTime.now();
+        /*
+        Will actually develop a timestamp function that will grab the
+        date/time when a transaction is triggered.
+         */
+        LocalDateTime date = LocalDateTime.parse("2020-02-29T06:08:34");
             System.out.printf("Time now is: %s%n", date);
 
             System.out.printf("Time to end of day: %s hours %s minutes%n",
