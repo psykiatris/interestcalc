@@ -1,5 +1,6 @@
 package org.palczewski.process;
 
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -11,7 +12,13 @@ import java.util.Scanner;
  */
 public class APY {
 
+    /**
+     * The text 'months'.
+     */
     static final String MONTHS = "months";
+    /**
+     * The text 'month'.
+     */
     static final String MONTH = "month";
 
     /**
@@ -50,13 +57,13 @@ public class APY {
      * @param startBal Beginning balance
      * @param rate Annual Percentage Rate
      * @param date Date of period
-     * @param invBal Amount of monthly invenstment
+     * @param invAmt Amount of monthly investment
      * @param term Term in years
      * @return totalInt Value of tatal interest earned
      */
     private static double growthTable(double startBal, double rate,
                                  LocalDate date
-            , double invBal, double term) {
+            , double invAmt, double term) {
 
         LocalDate localDate = date;
         double bal = startBal;
@@ -72,7 +79,7 @@ public class APY {
             newBal = bal + moInt;
             System.out.printf("%1$tb %tY - Bal: $%,.2f Int: $%,.2f%n",
                     localDate, newBal, moInt);
-            bal = newBal + invBal;
+            bal = newBal + invAmt;
             localDate = localDate.plusMonths(1);
         }
         System.out.println("\t=== Results ===");
@@ -81,7 +88,7 @@ public class APY {
                         "%n$%,.2f and a monthly deposit of $%,.2f,%n " +
                         "your final balance would be $%,.2f%n", month,
                 textMo,
-                startBal, invBal
+                startBal, invAmt
                 , newBal);
         return totalInt;
     }
@@ -92,7 +99,7 @@ public class APY {
      * @param args Empty argument list
      */
     public static void main(String[] args) {
-        try(Scanner in = new Scanner(System.in)) {
+        try(Scanner in = new Scanner(System.in, StandardCharsets.UTF_8)) {
             // Get figures
             System.out.print("Enter a balance: ");
             double bal = in.nextDouble();

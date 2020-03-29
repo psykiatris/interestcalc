@@ -12,6 +12,9 @@ Calculates amoritzed payments for loans, mortgages and credit cards
  */
 public class Amortized {
 
+    /**
+     * Holds the accumulated interest.
+     */
     private double accumInt = 0;
 
     /**
