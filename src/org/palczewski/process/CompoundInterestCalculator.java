@@ -9,13 +9,12 @@ particular month. (Will be deprecated in a future release)
  @author Patrick Palczewski - psykiatris@gmail.com
  @version .99
  */
-public class CompoundInterestCalculator {
+class CompoundInterestCalculator {
 
     // Fields
     private int inputMonth;
     private int inputYear;
     private double intRate;
-    private static double dailyInterrest;
     private double balance;
 
     /**
@@ -50,7 +49,7 @@ public class CompoundInterestCalculator {
     private static double getDailyInt(double balance, double intRate) {
 
         double resInt = intRate / 100;
-        dailyInterrest = resInt / 365;
+        double dailyInterrest = resInt / 365;
         return balance * dailyInterrest;
 
     }

@@ -10,7 +10,7 @@ import java.util.Scanner;
  * @author Patrick Palczewski - psykiatris@gmail.com
  *  @version .99
  */
-public class APY {
+class APY {
 
     /**
      * The text 'months'.

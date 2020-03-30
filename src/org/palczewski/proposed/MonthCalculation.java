@@ -6,10 +6,8 @@ import java.time.temporal.ChronoUnit;
 /**
  * Provides methods to manage time in hourly, daily and monthly criteria.
  */
-public class MonthCalculation {
-
-    // Private construcotr. Cannot instantiate
-    private MonthCalculation() {}
+enum MonthCalculation {
+    ;
 
     static int toEndOfMonth(LocalDate date) {
         // Get days in month based on beginning date

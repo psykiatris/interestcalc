@@ -11,7 +11,7 @@ import java.util.Scanner;
  * @author Patrick Palczewski - psykiatris@gmail.com
  * @version .99
  */
-public class DoPeriod {
+class DoPeriod {
     // TODO: 1/27/20 Rewrite this class for simplicity and clarity.
     /**
      * Empty constructor

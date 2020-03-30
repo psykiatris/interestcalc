@@ -10,7 +10,8 @@ import java.util.stream.Stream;
  * @author Patrick Palczewski - psykiatris@gmail.com
  * @version .99
  */
-public class StreamGenerator {
+enum StreamGenerator {
+    ;
 
     /**
      * Creates a stream of dates in a cycle

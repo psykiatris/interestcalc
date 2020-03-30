@@ -9,7 +9,8 @@ import java.util.Scanner;
 /**
  * Tested processing input.
  */
-public class ConsoleLoop {
+enum ConsoleLoop {
+    ;
 
 
     public static void main(String[] args) {

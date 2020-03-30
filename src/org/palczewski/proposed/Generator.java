@@ -15,7 +15,7 @@ import org.jetbrains.annotations.Contract;
  * @version .99
  *
  */
-public class Generator {
+class Generator {
 
     /**
      * Cannot be instantiated

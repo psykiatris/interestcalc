@@ -10,12 +10,12 @@ Calculates amoritzed payments for loans, mortgages and credit cards
  @author Patrick Palczewski - psykiatris@gmail.com
  @version .99
  */
-public class Amortized {
+class Amortized {
 
     /**
      * Holds the accumulated interest.
      */
-    private double accumInt = 0;
+    private double accumInt;
 
     /**
      * Creates an object of princi]al, rate &amp; period

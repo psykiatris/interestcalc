@@ -10,11 +10,11 @@ Creates a base account with balance, apr and period (term in months)
  @author Patrick Palczewski - psykiatris@gmail.com
  @version .99
  */
-public class BaseAccount {
+class BaseAccount {
 
     private final double balance;
     private final double apr;
-    private static double period = 0.0;
+    private static double period;
     private final LocalDate date;
 
     /**
