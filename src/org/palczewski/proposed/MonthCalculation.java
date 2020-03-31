@@ -1,7 +1,6 @@
 package org.palczewski.proposed;
 
 import java.time.*;
-import java.time.temporal.ChronoUnit;
 
 /**
  * Provides methods to manage time in hourly, daily and monthly criteria.

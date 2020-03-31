@@ -2,7 +2,6 @@ package org.palczewski.time;
 
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
-import java.time.Period;
 import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 

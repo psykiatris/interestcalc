@@ -28,6 +28,8 @@ class Generator {
      * savings account or CD)
      */
     public void earnInterest() {
+        // Empty for now
+
 
     }
 
@@ -36,6 +38,7 @@ class Generator {
      * Decreases balances such as principal and interest payments.
      */
     public void chargeInterest() {
+        // Empty for now
 
 
     }

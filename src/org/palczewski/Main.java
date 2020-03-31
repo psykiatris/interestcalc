@@ -14,7 +14,8 @@ the same way.
 So, the user chooses an option, which will determine the cycle and pass
 the information to the actual function, which is very simple.
  */
-public class Main {
+enum Main {
+    ;
 
     public static void main(String[] args) {
 
@@ -22,8 +23,7 @@ public class Main {
 
             System.out.println("\t=== Financial Calculator ===");
             System.out.printf("Calculates interest earned or charged%non a bank savings or credit card account.%n");
-            System.out.printf("\tEnter an option:%n\t%2d - %-11s%n\t%2d " +
-                    "- %-11s%n\t%2d - %-11s%n\t%2d - %-11s%n", 1, "Savings", 2,
+            System.out.printf("\tEnter an option:%n\t%2d - %-11s%n\t%2d - %-11s%n\t%2d - %-11s%n\t%2d - %-11s%n", 1, "Savings", 2,
                     "Credit Card", 3, "Find Cycle", 9, "Quit");
 
             int choice = 0;
@@ -78,8 +78,7 @@ public class Main {
                         cycle = startDate.plusMonths(1).lengthOfMonth();
                         LocalDate endDate = startDate.plus(cycle - 1,
                                 ChronoUnit.DAYS);
-                        System.out.printf("Cycle period: %1$tm-%1$td-%1$tY " +
-                                        "to %2$tm-%2$td-%2$tY%n",
+                        System.out.printf("Cycle period: %1$tm-%1$td-%1$tY to %2$tm-%2$td-%2$tY%n",
                                 startDate, endDate);
                         System.out.printf("Cycle: %d days.%n", cycle);
                         System.out.print("Enter the APR: ");
@@ -93,17 +92,11 @@ public class Main {
                     case 3: {
                         System.out.print("Enter start date: ");
                         startDate = LocalDate.parse(in.next());
-                        if(startDate.getDayOfMonth() == 1) {
-                            cycle = startDate.lengthOfMonth();
-                        } else {
-                            cycle =
-                                    startDate.plusMonths(1).lengthOfMonth();
-                        }
+                        cycle = (startDate.getDayOfMonth() == 1) ? startDate.lengthOfMonth() : startDate.plusMonths(1).lengthOfMonth();
 
                         LocalDate endDate = startDate.plus(cycle - 1,
                                 ChronoUnit.DAYS);
-                        System.out.printf("Cycle: %1$tm-%1$td-%1$tY " +
-                                        "to %2$tm-%2$td-%2$tY%n",
+                        System.out.printf("Cycle: %1$tm-%1$td-%1$tY to %2$tm-%2$td-%2$tY%n",
                                 startDate, endDate);
                         System.out.printf("Period is %d days.%n", cycle);
                         break;

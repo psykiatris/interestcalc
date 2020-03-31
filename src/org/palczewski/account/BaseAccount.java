@@ -14,7 +14,7 @@ class BaseAccount {
 
     private final double balance;
     private final double apr;
-    private static double period;
+    private static double period = 0.0;
     private final LocalDate date;
 
     /**

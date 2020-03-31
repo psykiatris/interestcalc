@@ -12,10 +12,10 @@ particular month. (Will be deprecated in a future release)
 class CompoundInterestCalculator {
 
     // Fields
-    private int inputMonth;
-    private int inputYear;
-    private double intRate;
-    private double balance;
+    private static final int inputMonth = 0;
+    private static final int inputYear = 0;
+    private static final double intRate = 0.0;
+    private static final double balance = 0.0;
 
     /**
      * Consructor

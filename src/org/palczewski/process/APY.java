@@ -84,9 +84,7 @@ class APY {
         }
         System.out.println("\t=== Results ===");
         String textMo = (month <= 1) ? MONTH : MONTHS;
-        System.out.printf("After %.0f %s, with an initial balance of " +
-                        "%n$%,.2f and a monthly deposit of $%,.2f,%n " +
-                        "your final balance would be $%,.2f%n", month,
+        System.out.printf("After %.0f %s, with an initial balance of %n$%,.2f and a monthly deposit of $%,.2f,%n your final balance would be $%,.2f%n", month,
                 textMo,
                 startBal, invAmt
                 , newBal);
