@@ -21,12 +21,14 @@ class APY {
      */
     static final String MONTH = "month";
 
+
+
     /**
      * Calculates Annual Percentage Yield (the true APR rate)
      *
      * @param totalInt Total of interest earned
      * @param intRate Annual Percentage Rate
-     * @param period Number of months
+     * @param period Number of years
      */
     private APY(double totalInt, double intRate,
                 double period) {
