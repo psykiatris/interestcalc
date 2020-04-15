@@ -11,12 +11,12 @@ public class LocalCurrency {
 
 
     public static void main(String[] args) {
-        Set<Currency> curList = Currency.getAvailableCurrencies();
+        String usDollar = Currency.getInstance(Locale.getDefault()).getSymbol();
 
-        for (Currency currency : curList) {
-            System.out.println("Country: " + currency + ": " + currency.getSymbol());
-        }
+        String pound = Currency.getInstance(Locale.UK).getSymbol();
 
+        System.out.printf("US Dollar: %s\nBritish Pound: %s", usDollar,
+                pound);
 
     }
 }
