@@ -2,6 +2,8 @@ package org.palczewski.process;
 
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
+import java.util.Currency;
+import java.util.Locale;
 import java.util.Scanner;
 
 
@@ -16,6 +18,8 @@ class Amortized {
      * Holds the accumulated interest.
      */
     private double accumInt = 0.0;
+    private static final String usd =
+            Currency.getInstance(Locale.getDefault()).getSymbol();
 
     /**
      * Creates an object of princi]al, rate &amp; period
@@ -38,9 +42,9 @@ class Amortized {
                 toMonths(periods), payment);
         System.out.println("\t=== Payment Summary ===");
         String text = (periods <= 1) ? APY.MONTH : APY.MONTHS;
-        System.out.printf("Based on principal of $%,.2f for %.0f %s,%nat %.3f%%, your montly payments would be  $%,.2f.%n",
-                p, periods, text, rate, payment);
-        System.out.printf("Interest paid for this period: $%,.2f%n",
+        System.out.printf("Based on principal of %s%,.2f for %.0f %s,%nat %.3f%%, your montly payments would be  %s%,.2f.%n", usd,
+                p, periods, text, rate, usd, payment);
+        System.out.printf("Interest paid for this period: %s%,.2f%n", usd,
                 accumInt);
 
 
@@ -80,8 +84,8 @@ class Amortized {
 
             accumInt += moInterest;
             double newBal = v - newPrin;
-            System.out.printf("%1$tb %tY Bal: $%,.2f P: $%,.2f I: $%,.2f%n",
-                    date, v, newPrin, moInterest);
+            System.out.printf("%1$tb %tY Bal: %s%,.2f P: %s%,.2f I: %s%,.2f%n",
+                    date, usd, v, usd, newPrin, usd, moInterest);
             v = newBal;
             date = date.plusMonths(1);
 

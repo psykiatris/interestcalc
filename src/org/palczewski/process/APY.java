@@ -2,6 +2,8 @@ package org.palczewski.process;
 
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
+import java.util.Currency;
+import java.util.Locale;
 import java.util.Scanner;
 
 /**
@@ -20,6 +22,8 @@ class APY {
      * The text 'month'.
      */
     static final String MONTH = "month";
+    // Set currency symbool
+    static final String dlr = Currency.getInstance(Locale.US).getSymbol();
 
 
 
@@ -32,6 +36,8 @@ class APY {
      */
     private APY(double totalInt, double intRate,
                 double period) {
+
+
         double apr = intRate / 100;
         // first part of formula
         double months = period * 12;
@@ -41,10 +47,11 @@ class APY {
         double res = (StrictMath.pow(form, months) - 1);
 
         System.out.println("\t=== APY ===");
-        System.out.printf("Total interest earned: $%,.2f%nInterest rate: %.2f%%%nAnnual interest: $%,.2f%n=  average monthly interest of: $%,.2f%n",
+        System.out.printf("Total interest earned: %s%,.2f%nInterest rate: %.2f%%%nAnnual interest: %s%,.2f%n=  average monthly interest of: %s%,.2f%n",
+                dlr,
                 totalInt,
-                intRate,
-                (totalInt / period), (totalInt /
+                intRate, dlr,
+                (totalInt / period), dlr, (totalInt /
                 months));
         System.out.printf("True APY is: %,.2f%%%n", res * 100);
 
@@ -79,17 +86,19 @@ class APY {
             double moInt = bal * moRate;
             totalInt += moInt;
             newBal = bal + moInt;
-            System.out.printf("%1$tb %tY - Bal: $%,.2f Int: $%,.2f%n",
-                    localDate, newBal, moInt);
+            System.out.printf("%1$tb %tY - Bal: %s%,.2f Int: %s%,.2f%n",
+                    localDate, dlr,newBal, dlr, moInt);
             bal = newBal + invAmt;
             localDate = localDate.plusMonths(1);
         }
         System.out.println("\t=== Results ===");
         String textMo = (month <= 1) ? MONTH : MONTHS;
-        System.out.printf("After %.0f %s, with an initial balance of %n$%,.2f and a monthly deposit of $%,.2f,%n your final balance would be $%,.2f%n", month,
-                textMo,
-                startBal, invAmt
-                , newBal);
+        System.out.printf("After %.0f %s, with an initial balance of " +
+                        "%n%s%,.2f and a monthly deposit of %s%,.2f,%n " +
+                        "your final balance would be %s%,.2f%n", month,
+                textMo, dlr,
+                startBal, dlr, invAmt
+                , dlr, newBal);
         return totalInt;
     }
 
