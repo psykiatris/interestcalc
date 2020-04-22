@@ -1,14 +1,16 @@
 package org.palczewski.proposed;
 
-import java.math.RoundingMode;
 import java.text.NumberFormat;
-import java.util.Currency;
 import java.util.Locale;
 
+/**
+ * Proposed class to manage display of currencies, percentages and
+ * number formats.
+ */
 
 public class Numerics {
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         double amt = 10500.75;
         double intRate = 2.6125 / 100;
 
