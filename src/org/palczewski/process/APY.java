@@ -1,6 +1,7 @@
 package org.palczewski.process;
 
 import java.nio.charset.StandardCharsets;
+import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.util.Currency;
 import java.util.Locale;
@@ -22,8 +23,19 @@ class APY {
      * The text 'month'.
      */
     static final String MONTH = "month";
-    // Set currency symbool
-    static final String dlr = Currency.getInstance(Locale.US).getSymbol();
+
+    /*
+    Set currency and percentage formats to display
+     */
+    private static final NumberFormat usd =
+            NumberFormat.getCurrencyInstance(Locale.getDefault());
+    private static final NumberFormat prct =
+            NumberFormat.getPercentInstance(Locale.getDefault());
+    private static final NumberFormat num =
+            NumberFormat.getInstance(Locale.getDefault());
+
+
+
 
 
 
@@ -37,7 +49,8 @@ class APY {
     private APY(double totalInt, double intRate,
                 double period) {
 
-
+        //Set percentage fraction
+        prct.setMaximumFractionDigits(2);
         double apr = intRate / 100;
         // first part of formula
         double months = period * 12;
@@ -47,13 +60,14 @@ class APY {
         double res = (StrictMath.pow(form, months) - 1);
 
         System.out.println("\t=== APY ===");
-        System.out.printf("Total interest earned: %s%,.2f%nInterest rate: %.2f%%%nAnnual interest: %s%,.2f%n=  average monthly interest of: %s%,.2f%n",
-                dlr,
-                totalInt,
-                intRate, dlr,
-                (totalInt / period), dlr, (totalInt /
-                months));
-        System.out.printf("True APY is: %,.2f%%%n", res * 100);
+        System.out.printf("Total interest earned: %s%nInterest rate: " +
+                        "%s%nAnnual interest: %s%n=  average monthly interest of: %s%n",
+                usd.format(totalInt),
+                prct.format(apr),
+                usd.format((totalInt / period)), usd.format((totalInt /
+                        months)));
+        System.out.printf("True APY is: %s%n",
+                prct.format((res * 100) / 100));
 
     }
 
@@ -74,6 +88,7 @@ class APY {
                                  LocalDate date
             , double invAmt, double term) {
 
+        num.setMaximumFractionDigits(0);
         LocalDate localDate = date;
         double bal = startBal;
         double moRate = rate / (12 * 100);
@@ -86,19 +101,19 @@ class APY {
             double moInt = bal * moRate;
             totalInt += moInt;
             newBal = bal + moInt;
-            System.out.printf("%1$tb %tY - Bal: %s%,.2f Int: %s%,.2f%n",
-                    localDate, dlr,newBal, dlr, moInt);
+            System.out.printf("%1$tb %tY - Bal: %s Int: %s%n",
+                    localDate, usd.format(newBal), usd.format(moInt));
             bal = newBal + invAmt;
             localDate = localDate.plusMonths(1);
         }
         System.out.println("\t=== Results ===");
         String textMo = (month <= 1) ? MONTH : MONTHS;
-        System.out.printf("After %.0f %s, with an initial balance of " +
-                        "%n%s%,.2f and a monthly deposit of %s%,.2f,%n " +
-                        "your final balance would be %s%,.2f%n", month,
-                textMo, dlr,
-                startBal, dlr, invAmt
-                , dlr, newBal);
+        System.out.printf("After %s %s, with an initial balance of " +
+                        "%n%s and a monthly deposit of %s,%n " +
+                        "your final balance would be %s%n", num.format(month),
+                textMo,
+                usd.format(startBal),  usd.format(invAmt)
+                ,  usd.format(newBal));
         return totalInt;
     }
 
