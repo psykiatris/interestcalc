@@ -21,6 +21,8 @@ public class Numerics {
         // Set grouping
         prct.setMaximumFractionDigits(3);
 
+        format.setGroupingUsed(true);
+
 
 
         System.out.printf("Amount: %s%nInterest Rate: %s",

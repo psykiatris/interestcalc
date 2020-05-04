@@ -1,7 +1,10 @@
 package org.palczewski.process;
 
+import javax.swing.text.NumberFormatter;
 import java.nio.charset.StandardCharsets;
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.text.spi.NumberFormatProvider;
 import java.time.LocalDate;
 import java.util.Currency;
 import java.util.Locale;
@@ -27,6 +30,7 @@ class Amortized {
             NumberFormat.getCurrencyInstance(Locale.getDefault());
     private static final NumberFormat prct =
             NumberFormat.getPercentInstance(Locale.getDefault());
+    
 
     /**
      * Creates an object of princi]al, rate &amp; period
@@ -46,7 +50,7 @@ class Amortized {
 
         payment = (moInt == 0) ? (p / periods) : (p * (moInt / (1 - (StrictMath.pow(1 / (1 + moInt), periods)))));
 
-        // print table
+        // displays payment table
         viewAmortizationSchedule(p, rate, LocalDate.now(),
 
                 toMonths(periods), payment);
@@ -82,8 +86,9 @@ class Amortized {
     private void viewAmortizationSchedule(double prin, double rate,
                                       LocalDate startDate, double years,
                                       double pmt) {
-        // Change interest to decimal format
+        // Set fractional digits
         prct.setMaximumFractionDigits(3);
+
         LocalDate date = startDate;
         double v = prin;
         double moRate = rate / (12 * 100);
@@ -111,7 +116,7 @@ class Amortized {
      */
     public static void main(String[] args) {
         try (Scanner in = new Scanner(System.in, StandardCharsets.UTF_8)) {
-            System.out.println("Calculated payments on mortgage");
+            System.out.println("Calculate principal and interest payments for loans");
             System.out.print("Enter principal amount: ");
             double prin = in.nextDouble();
             System.out.print("Enter interest rate: ");
