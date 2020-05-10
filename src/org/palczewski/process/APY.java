@@ -124,6 +124,7 @@ class APY {
      */
     public static void main(String[] args) {
         try(Scanner in = new Scanner(System.in, StandardCharsets.UTF_8)) {
+            System.out.println("Savings Calculatgor - version 1.0");
             // Get figures
             System.out.print("Enter a balance: ");
             double bal = in.nextDouble();

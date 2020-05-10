@@ -116,7 +116,7 @@ class Amortized {
      */
     public static void main(String[] args) {
         try (Scanner in = new Scanner(System.in, StandardCharsets.UTF_8)) {
-            System.out.println("Calculate principal and interest payments for loans");
+            System.out.println("Loan Calculator - version 1.0");
             System.out.print("Enter principal amount: ");
             double prin = in.nextDouble();
             System.out.print("Enter interest rate: ");
