@@ -53,12 +53,11 @@ public class InterestCalculator {
         for(int i = 1; i <= cycle; i++) {
             if(dailyBalance.isEmpty()) {
                 System.out.printf("%s : ", start);
-                dailyBalance.put(start, in.nextDouble());
             } else {
                 System.out.printf("%s : [$%,.2f] ", start,
                        dailyBalance.get(start.minus(1, ChronoUnit.DAYS)));
-                dailyBalance.put(start, in.nextDouble());
             }
+            dailyBalance.put(start, in.nextDouble());
             start = start.plus(1, ChronoUnit.DAYS);
         }
         System.out.println();
