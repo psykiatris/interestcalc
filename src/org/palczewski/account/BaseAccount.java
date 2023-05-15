@@ -22,7 +22,8 @@ class BaseAccount {
      */
     private BaseAccount() {
         balance = 0.00;
-        date = LocalDate.now();
+        date = LocalDate;
+        apr = 0.00;
     }
 
     /**
