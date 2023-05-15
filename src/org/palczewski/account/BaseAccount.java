@@ -18,6 +18,14 @@ class BaseAccount {
     private final LocalDate date;
 
     /**
+     * Default constructor with 0 bakabc and today's date.
+     */
+    private BaseAccount() {
+        balance = 0.00;
+        date = LocalDate.now();
+    }
+
+    /**
      * Creates base account object for use with other classes.
      *
      * @param bal Amount being calculated
