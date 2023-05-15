@@ -33,10 +33,10 @@ class Amortized {
     
 
     /**
-     * Creates an object of princi]al, rate &amp; period
+     * Creates an object of principal, rate &amp; term
      * @param p Principal balance
      * @param rate Annual Percentage Rate
-     * @param periods Months in period
+     * @param periods Months in term
      *
      */
     private Amortized(double p, double rate, double periods) {

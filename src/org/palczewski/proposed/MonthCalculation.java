@@ -23,7 +23,7 @@ enum MonthCalculation {
 
         static int fromBeginningOfMonth(LocalDate date) {
 
-        int firstDayOfMonth = 1;
+            int firstDayOfMonth = 1;
 
             System.out.printf("Day: %s%nFirst day of month: %s%n",
                     date.getDayOfMonth(),
@@ -84,7 +84,7 @@ enum MonthCalculation {
         Will actually develop a timestamp function that will grab the
         date/time when a transaction is triggered.
          */
-        LocalDateTime date = LocalDateTime.parse("2020-02-29T06:08:34");
+        LocalDateTime date = LocalDateTime.now();
             System.out.printf("Time now is: %s%n", date);
 
             System.out.printf("Time to end of day: %s hours %s minutes%n",

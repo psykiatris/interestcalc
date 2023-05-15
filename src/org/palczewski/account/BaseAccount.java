@@ -20,15 +20,15 @@ class BaseAccount {
     /**
      * Creates base account object for use with other classes.
      *
-     * @param balance Amount being calculated
-     * @param apr Annual Interest Rate (APR)
-     * @param date Start date of cycle period
+     * @param bal Amount being calculated
+     * @param a Annual Interest Rate (APR)
+     * @param d Start date of cycle period
      */
-    private BaseAccount(double balance, double apr, @NotNull LocalDate date) {
-        this.balance = balance;
-        this.apr = apr;
-        this.date = date;
-        period = toDaysInPeriod(date);
+    private BaseAccount(double bal, double a, @NotNull LocalDate d) {
+        balance = bal;
+        apr = a;
+        date = d;
+        period = toDaysInPeriod(d);
 
     }
 

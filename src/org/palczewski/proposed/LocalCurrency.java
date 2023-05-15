@@ -7,7 +7,7 @@ import java.util.spi.CurrencyNameProvider;
 
 
 /**
- * This class will work with currency.
+ * This class will work with system default currency.
  */
 public class LocalCurrency {
 
