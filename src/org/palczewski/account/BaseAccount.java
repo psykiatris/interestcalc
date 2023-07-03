@@ -8,7 +8,7 @@ import java.time.LocalDate;
 /**
 Creates a base account with balance, apr and period (term in months)
  @author Patrick Palczewski - psykiatris@gmail.com
- @version .99
+ @version 1.0
  */
 class BaseAccount {
 
@@ -21,6 +21,12 @@ class BaseAccount {
      * Default constructor with 0 bakabc and today's date.
      */
     private BaseAccount() {
+        balance = 0;
+        // Recent change in Java library. Now must have params. Parameters
+        // are 7/3/2023 - day 183
+        // date = LocalDate.ofYearDay(2023, 183);
+        date = LocalDate.now();
+        apr = 0;
 
     }
 
@@ -97,8 +103,8 @@ class BaseAccount {
 
     // Self-test
     public static void main(String[] args) {
-        String m = "2020-11-10";
-        BaseAccount acct = new BaseAccount(1000, 1.88, LocalDate.parse(m));
+        String m = "2022-08-12";
+        BaseAccount acct = new BaseAccount(114000, 5.0, LocalDate.parse(m));
         System.out.println(acct);
         System.out.printf("Days in period: %.0f%n", period);
     }

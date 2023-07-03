@@ -30,7 +30,8 @@ class Amortized {
             NumberFormat.getCurrencyInstance(Locale.getDefault());
     private static final NumberFormat prct =
             NumberFormat.getPercentInstance(Locale.getDefault());
-    
+
+    private static LocalDate startDate;
 
     /**
      * Creates an object of principal, rate &amp; term
@@ -51,7 +52,7 @@ class Amortized {
         payment = (moInt == 0) ? (p / periods) : (p * (moInt / (1 - (StrictMath.pow(1 / (1 + moInt), periods)))));
 
         // displays payment table
-        viewAmortizationSchedule(p, rate, LocalDate.now(),
+        viewAmortizationSchedule(p, rate, startDate,
 
                 toMonths(periods), payment);
         System.out.println("\t=== Payment Summary ===");
@@ -89,7 +90,7 @@ class Amortized {
         // Set fractional digits
         prct.setMaximumFractionDigits(3);
 
-        LocalDate date = startDate;
+        LocalDate date = startDate.plusMonths(1);
         double v = prin;
         double moRate = rate / (12 * 100);
         double period = years * 12;
@@ -117,12 +118,16 @@ class Amortized {
     public static void main(String[] args) {
         try (Scanner in = new Scanner(System.in, StandardCharsets.UTF_8)) {
             System.out.println("Loan Calculator - version 1.0");
+            System.out.print("Enter date: ");
+            String inDate = in.nextLine();
+            startDate = LocalDate.parse(inDate);
             System.out.print("Enter principal amount: ");
             double prin = in.nextDouble();
             System.out.print("Enter interest rate: ");
             double rate = in.nextDouble();
             System.out.print("How many years? ");
             double periods = in.nextDouble() * 12;
+            System.out.println("Date starts: " + startDate);
             new Amortized(prin, rate, periods);
         }
 
