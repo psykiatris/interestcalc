@@ -49,12 +49,17 @@ class Amortized {
         moInt = (rate == 0) ? 0.0 : (rate / (12 * 100));
         double payment;
 
+        /**
+         * Formula used to calculate monthly payments.
+         *
+         * moInt is defaulted to zero and used, ptherwise the interest is used
+         * in calculations.
+         */
         payment = (moInt == 0) ? (p / periods) : (p * (moInt / (1 - (StrictMath.pow(1 / (1 + moInt), periods)))));
 
-        // displays payment table
-        viewAmortizationSchedule(p, rate, startDate,
+        // outputs payment table. TODO  Make this optional to user.
+        //viewAmortizationSchedule(p, rate, startDate,toMonths(periods), payment);
 
-                toMonths(periods), payment);
         System.out.println("\t=== Payment Summary ===");
         String text = (periods <= 1) ? APY.MONTH : APY.MONTHS;
         System.out.printf("Based on principal of %s for %s %s,%nat %s, your montly payments would be  %s.%n",

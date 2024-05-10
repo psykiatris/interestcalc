@@ -135,8 +135,9 @@ class APY {
             System.out.print("Enter term in years: ");
             double term = in.nextDouble();
 
-            double resBal = growthTable(bal, interest,LocalDate.now(),
-                    invBal, term);
+            // Calls growthTable. Commented out to not use. TODO    Make this
+            // optional for user.
+            //double resBal = growthTable(bal, interest,LocalDate.now(), invBal, term);
 
             // Pass along
             new APY(resBal, interest, term);
