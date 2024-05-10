@@ -1,12 +1,8 @@
 package org.palczewski.process;
 
-import javax.swing.text.NumberFormatter;
 import java.nio.charset.StandardCharsets;
-import java.text.DecimalFormat;
 import java.text.NumberFormat;
-import java.text.spi.NumberFormatProvider;
 import java.time.LocalDate;
-import java.util.Currency;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -30,8 +26,6 @@ class Amortized {
             NumberFormat.getCurrencyInstance(Locale.getDefault());
     private static final NumberFormat prct =
             NumberFormat.getPercentInstance(Locale.getDefault());
-
-    private static LocalDate startDate;
 
     /**
      * Creates an object of principal, rate &amp; term
@@ -125,7 +119,7 @@ class Amortized {
             System.out.println("Loan Calculator - version 1.0");
             System.out.print("Enter date: ");
             String inDate = in.nextLine();
-            startDate = LocalDate.parse(inDate);
+            LocalDate startDate = LocalDate.parse(inDate);
             System.out.print("Enter principal amount: ");
             double prin = in.nextDouble();
             System.out.print("Enter interest rate: ");
