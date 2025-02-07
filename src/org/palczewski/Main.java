@@ -21,7 +21,7 @@ enum Main {
 
         try (Scanner in = new Scanner(System.in, StandardCharsets.UTF_8)) {
 
-            System.out.println("\t=== Financial Calculator ===");
+            System.out.println("\t=== Financial Surveyor ===");
             System.out.printf("Calculates interest earned or charged%non a bank savings or credit card account.%n");
             System.out.printf("\tEnter an option:%n\t%2d - %-11s%n\t%2d - %-11s%n\t%2d - %-11s%n\t%2d - %-11s%n", 1, "Savings", 2,
                     "Credit Card", 3, "Find Cycle", 9, "Quit");
